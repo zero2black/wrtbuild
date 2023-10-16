@@ -69,11 +69,11 @@ jobs:
         run: |
           bash build.sh
 
-      - name: Upload Firmware to Artifacts
-        uses: actions/upload-artifact@v3.1.2
-        with:
-          name: ${{ env.VENDOR }}-${{ env.VERSION }}-x86_64-images-${{ env.DATETIME }}
-          path: ${{ env.VENDOR }}-imagebuilder-${{ env.VERSION }}-x86-64.Linux-x86_64/bin/targets/x86/64/*generic-ext4-combined-efi.img.gz
+      #- name: Upload Firmware to Artifacts
+      #  uses: actions/upload-artifact@v3.1.2
+      #  with:
+      #    name: ${{ env.VENDOR }}-${{ env.VERSION }}-x86_64-images-${{ env.DATETIME }}
+      #    path: ${{ env.VENDOR }}-imagebuilder-${{ env.VERSION }}-x86-64.Linux-x86_64/bin/targets/x86/64/*generic-ext4-combined-efi.img.gz
 
       - name: Upload Firmware to Release
    #     if: github.event.inputs.release == 'true'
