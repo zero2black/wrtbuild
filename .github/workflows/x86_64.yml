@@ -1,21 +1,21 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Generate x86_64SNAPSHOT OpenWrt Firmware
+name: x86_64
 
 # Controls when the workflow will run
 on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-   # inputs:
-   #   release: 
-   #     description: 将编译出的镜像上传到 Release
-   #     required: false
-   #     default: 'false'
+  #  inputs:
+  #    release: 
+  #      description: 将编译出的镜像上传到 Release
+ #       required: true
+  #      default: 'true'
 
 env:
   DOWNLOAD_BASE: https://downloads.immortalwrt.org
   VENDOR: immortalwrt
-  VERSION: 23.05-SNAPSHOT
+  VERSION: 23.05.0-rc4
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -33,8 +33,9 @@ jobs:
 
       - name: Setup Environment Variables
         run: |
+          export TZ=Asia/Jakarta
           echo "DATE=$(date +%Y%m%d)" >> $GITHUB_ENV
-          echo "DATETIME=$(date +'%Y%m%d%H%M%S')" >> $GITHUB_ENV
+          echo "DATETIME=$(date +'%Y-%m-%d_%H%M%S')" >> $GITHUB_ENV
       
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout
@@ -58,7 +59,9 @@ jobs:
         working-directory: ${{ env.VENDOR }}-imagebuilder-${{ env.VERSION }}-x86-64.Linux-x86_64
         run: |
           bash scripts/builder-patch.sh
+          bash scripts/external_paket.sh
           bash scripts/clash.sh
+          bash scripts/cloudflared.sh
           bash scripts/zsh.sh
 
       - name: Generate Firmware
@@ -66,19 +69,19 @@ jobs:
         run: |
           bash build.sh
 
-      - name: Upload Firmware to Artifacts
-        uses: actions/upload-artifact@v3.1.2
-        with:
-          name: ${{ env.VENDOR }}-${{ env.VERSION }}-x86_64-images-${{ env.DATETIME }}
-          path: ${{ env.VENDOR }}-imagebuilder-${{ env.VERSION }}-x86-64.Linux-x86_64/bin/targets/x86/64/*
+      #- name: Upload Firmware to Artifacts
+      #  uses: actions/upload-artifact@v3.1.2
+      #  with:
+      #    name: ${{ env.VENDOR }}-${{ env.VERSION }}-x86_64-images-${{ env.DATETIME }}
+      #    path: ${{ env.VENDOR }}-imagebuilder-${{ env.VERSION }}-x86-64.Linux-x86_64/bin/targets/x86/64/*generic-ext4-combined-efi.img.gz
 
       - name: Upload Firmware to Release
-        #if: github.event.inputs.release == 'true'
+   #     if: github.event.inputs.release == 'true'
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file_glob: true
-          file: ${{ env.VENDOR }}-imagebuilder-${{ env.VERSION }}-x86-64.Linux-x86_64/bin/targets/x86/64/*
+          file: ${{ env.VENDOR }}-imagebuilder-${{ env.VERSION }}-x86-64.Linux-x86_64/bin/targets/x86/64/*generic-ext4-combined-efi.img.gz
           asset_name: ${{ github.event.repository.name }}-${{ github.sha }}
-          tag: release-${{ env.DATETIME }}
+          tag: release-${{ env.DATE }}
           overwrite: true
