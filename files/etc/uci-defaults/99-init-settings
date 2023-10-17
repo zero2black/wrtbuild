@@ -120,4 +120,6 @@ rm -rf /usr/lib/lua/luci/i18n
 #metacubexd
 #tar -xzf /etc/openclash/compressed-dist.tgz -C /usr/share/openclash/ui/dashboard && rm /etc/openclash/compressed-dist.tgz
 
+chmod +x /lib/preinit/80_mount_root
+
 exit 0
