@@ -43,17 +43,17 @@ uci set network.m_usb0.metric='1000'
 uci set network.m_usb1=interface
 uci set network.m_usb1.proto='dhcp'
 uci set network.m_usb1.device='usb1'
-uci set network.m_usb1.metric='1100'
+uci set network.m_usb1.metric='2000'
 
 uci set network.m_eth1=interface
 uci set network.m_eth1.proto='dhcp'
 uci set network.m_eth1.device='eth1'
-uci set network.m_eth1.metric='2000'
+uci set network.m_eth1.metric='3000'
 
 uci set network.m_eth2=interface
 uci set network.m_eth2.proto='dhcp'
 uci set network.m_eth2.device='eth2'
-uci set network.m_eth2.metric='2100'
+uci set network.m_eth2.metric='4000'
 
 #uci set network.utun=interface
 #uci set network.utun.proto='none'
@@ -75,7 +75,8 @@ uci commit firewall
 # Set default shell
 which zsh && sed -i -- 's:/bin/bash:'`which zsh`':g' /etc/passwd
 
-chmod +x /bin/kodok_loncat
+#chmod +x /bin/kodok_loncat
+
 chmod +x /bin/oc86
 oc86
 chmod +x files/etc/openclash/core/clash*
