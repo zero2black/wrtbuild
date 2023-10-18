@@ -90,6 +90,11 @@ PACKAGES="$PACKAGES -luci-i18n-base-zh-cn -default-settings-chn"
 PACKAGES="$PACKAGES luci-app-argon-config"
 #PACKAGES="$PACKAGES luci-app-design-config" 
 
+
+PACKAGES="$PACKAGES kmod-mii kmod-usb-net kmod-usb-wdm kmod-usb-net-qmi-wwan uqmi luci-proto-qmi"
+PACKAGES="$PACKAGES kmod-usb-net-cdc-ether kmod-usb-serial-option kmod-usb-serial kmod-usb-serial-wwan qmi-utils"
+PACKAGES="$PACKAGES kmod-usb-serial-qualcomm kmod-usb-acm kmod-usb-net-cdc-ncm kmod-usb-net-cdc-mbim umbim"
+PACKAGES="$PACKAGES modemmanager luci-proto-modemmanager usbutils"
 PACKAGES="$PACKAGES luci-proto-modemmanager luci-proto-mbim"
 
 # 常用软件服务
