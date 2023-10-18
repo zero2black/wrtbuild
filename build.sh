@@ -55,6 +55,15 @@ PACKAGES="$PACKAGES iptables-nft netdata vnstat2 vnstati2"
 PACKAGES="$PACKAGES luci-app-netmonitor"
 PACKAGES="$PACKAGES luci-app-cloudflared luci-app-diskman luci-app-hd-idle luci-app-samba4 cloudflared"
 
+PACKAGES="$PACKAGES kmod-inet-diag"
+PACKAGES="$PACKAGES luci-compat"
+PACKAGES="$PACKAGES kmod-nft-tproxy"
+PACKAGES="$PACKAGES kmod-ipt-nat"
+PACKAGES="$PACKAGES iptables-mod-extra"
+PACKAGES="$PACKAGES kmod-tun"
+PACKAGES="$PACKAGES iptables-mod-tproxy"
+
+
 PACKAGES="$PACKAGES luci-app-openclash"
 #PACKAGES="$PACKAGES luci-app-lite-watchdog"
 PACKAGES="$PACKAGES adguardhome luci-app-adguardhome"
