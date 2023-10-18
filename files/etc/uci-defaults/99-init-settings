@@ -58,7 +58,7 @@ uci set network.m_eth2.metric='4000'
 #uci set network.utun=interface
 #uci set network.utun.proto='none'
 #uci set network.utun.device='eth1'
-
+uci del network.utun
 uci commit network
 
 #uci add_list firewall.@zone[0].network='utun'
