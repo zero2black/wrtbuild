@@ -12,6 +12,7 @@ PROFILE="generic"
 PACKAGES=""
 
 # 主题
+PACKAGES="$PACKAGES luci-proto-modemmanager luci-proto-mbim"
 
 #PACKAGES="$PACKAGES -dnsmasq dnsmasq-full cgi-io libiwinfo libiwinfo-data libiwinfo-lua liblua block-mount mount-utils"
 #PACKAGES="$PACKAGES liblucihttp liblucihttp-lua libubus-lua lua luci luci-app-firewall luci-app-opkg"
@@ -66,7 +67,7 @@ PACKAGES="$PACKAGES iptables-mod-tproxy"
 
 PACKAGES="$PACKAGES luci-app-openclash"
 #PACKAGES="$PACKAGES luci-app-lite-watchdog"
-#PACKAGES="$PACKAGES adguardhome luci-app-adguardhome"
+PACKAGES="$PACKAGES adguardhome luci-app-adguardhome"
 #PACKAGES="$PACKAGES luci-app-adblock"
 
 PACKAGES="$PACKAGES luci-theme-material luci-theme-argon luci-theme-design luci-app-poweroff"
@@ -94,8 +95,8 @@ PACKAGES="$PACKAGES luci-app-argon-config"
 PACKAGES="$PACKAGES kmod-mii kmod-usb-net kmod-usb-wdm kmod-usb-net-qmi-wwan uqmi luci-proto-qmi"
 PACKAGES="$PACKAGES kmod-usb-net-cdc-ether kmod-usb-serial-option kmod-usb-serial kmod-usb-serial-wwan qmi-utils"
 PACKAGES="$PACKAGES kmod-usb-serial-qualcomm kmod-usb-acm kmod-usb-net-cdc-ncm kmod-usb-net-cdc-mbim umbim"
-PACKAGES="$PACKAGES modemmanager luci-proto-modemmanager usbutils"
-PACKAGES="$PACKAGES luci-proto-modemmanager luci-proto-mbim"
+PACKAGES="$PACKAGES usbutils"
+
 
 # 常用软件服务
 #PACKAGES="$PACKAGES luci-i18n-usb-printer-zh-cn"
