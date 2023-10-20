@@ -13,7 +13,8 @@ PACKAGES=""
 
 # 主题
 PACKAGES="$PACKAGES luci-proto-mbim"
-#PACKAGES="$PACKAGES modemmanager luci-proto-modemmanager"
+PACKAGES="$PACKAGES luci-proto-qmi"
+PACKAGES="$PACKAGES luci-proto-modemmanager"
 
 #PACKAGES="$PACKAGES -dnsmasq dnsmasq-full cgi-io libiwinfo libiwinfo-data libiwinfo-lua liblua block-mount mount-utils"
 #PACKAGES="$PACKAGES liblucihttp liblucihttp-lua libubus-lua lua luci luci-app-firewall luci-app-opkg"
@@ -93,10 +94,10 @@ PACKAGES="$PACKAGES luci-app-argon-config"
 #PACKAGES="$PACKAGES luci-app-design-config" 
 
 
-PACKAGES="$PACKAGES kmod-mii kmod-usb-net kmod-usb-wdm kmod-usb-net-qmi-wwan uqmi luci-proto-qmi"
-PACKAGES="$PACKAGES kmod-usb-net-cdc-ether kmod-usb-serial-option kmod-usb-serial kmod-usb-serial-wwan qmi-utils"
-PACKAGES="$PACKAGES kmod-usb-serial-qualcomm kmod-usb-acm kmod-usb-net-cdc-ncm kmod-usb-net-cdc-mbim umbim"
-PACKAGES="$PACKAGES usbutils"
+#PACKAGES="$PACKAGES kmod-mii kmod-usb-net kmod-usb-wdm kmod-usb-net-qmi-wwan uqmi luci-proto-qmi"
+#PACKAGES="$PACKAGES kmod-usb-net-cdc-ether kmod-usb-serial-option kmod-usb-serial kmod-usb-serial-wwan qmi-utils"
+#PACKAGES="$PACKAGES kmod-usb-serial-qualcomm kmod-usb-acm kmod-usb-net-cdc-ncm kmod-usb-net-cdc-mbim umbim"
+#PACKAGES="$PACKAGES usbutils"
 
 
 # 常用软件服务
