@@ -69,7 +69,7 @@ PACKAGES="$PACKAGES iptables-mod-tproxy"
 
 PACKAGES="$PACKAGES luci-app-openclash"
 #PACKAGES="$PACKAGES luci-app-lite-watchdog"
-PACKAGES="$PACKAGES adguardhome luci-app-adguardhome"
+#PACKAGES="$PACKAGES adguardhome luci-app-adguardhome"
 #PACKAGES="$PACKAGES luci-app-adblock"
 
 PACKAGES="$PACKAGES luci-theme-material luci-theme-argon luci-theme-design luci-app-poweroff"
