@@ -16,6 +16,13 @@ sed -i "s/install \$(BUILD_PACKAGES)/install \$(BUILD_PACKAGES) --force-overwrit
 
 # Not generate ISO images for it is too big
 sed -i "s/CONFIG_ISO_IMAGES=y/# CONFIG_ISO_IMAGES is not set/" .config
+# Root filesystem archives
+        # sed -i "s|CONFIG_TARGET_ROOTFS_CPIOGZ=.*|# CONFIG_TARGET_ROOTFS_CPIOGZ is not set|g" .config
+        # Root filesystem images
+        # sed -i "s|CONFIG_TARGET_ROOTFS_EXT4FS=.*|# CONFIG_TARGET_ROOTFS_EXT4FS is not set|g" .config
+        sed -i "s|CONFIG_TARGET_ROOTFS_SQUASHFS=.*|# CONFIG_TARGET_ROOTFS_SQUASHFS is not set|g" .config
+        #sed -i "s|CONFIG_TARGET_IMAGES_GZIP=.*|# CONFIG_TARGET_IMAGES_GZIP is not set|g" .config
+    
 
 # Not generate VHDX images
 sed -i "s/CONFIG_VHDX_IMAGES=y/# CONFIG_VHDX_IMAGES is not set/" .config
@@ -32,9 +39,6 @@ sed -i "s/CONFIG_PACKAGE_default-settings-chn=.*/# CONFIG_PACKAGE_default-settin
 sed -i "s/CONFIG_DEFAULT_default-settings-chn=.*/# CONFIG_DEFAULT_default-settings-chn is not set/" .config
 sed -i "s/CONFIG_MODULE_DEFAULT_default-settings-chn=.*/# CONFIG_MODULE_DEFAULT_default-settings-chn is not set/" .config
 
-# 不需要的镜像
-# sed -i "s/CONFIG_TARGET_ROOTFS_EXT4FS=y/# CONFIG_TARGET_ROOTFS_EXT4FS is not set/" .config
-sed -i "s/CONFIG_TARGET_ROOTFS_SQUASHFS=y/# CONFIG_TARGET_ROOTFS_SQUASHFS is not set/" .config
 
 # modify partition size
 sed -i "s/CONFIG_TARGET_KERNEL_PARTSIZE=.*/CONFIG_TARGET_KERNEL_PARTSIZE=128/" .config
