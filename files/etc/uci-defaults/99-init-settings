@@ -147,6 +147,13 @@ has_zone || exit 0
 logger -t firewall "Reloading firewall due to $ACTION of $INTERFACE ($DEVICE)"
 fw4 -q reload
 
+echo "Setting permission..."
+chmod +x /usr/bin/repair_ro  > /dev/null
+
+echo "Adding to startup..."
+if ! grep -q '/usr/bin/repair_ro' /etc/rc.local; then
+    sed -i '/exit 0/i /usr/bin/repair_ro' /etc/rc.local 2>/dev/null
+fi
 
 rm -rf /usr/lib/lua/luci/i18n
 rm -rf /etc/uci-defaults/luci-i18n*
