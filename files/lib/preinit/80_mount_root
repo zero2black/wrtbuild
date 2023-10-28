@@ -19,12 +19,12 @@ do_mount_root() {
 								if [ -e '/dev/sda1' ]; then
 										echo "Checking disk /dev/sda1...."
 										/usr/sbin/fsck.ext4 -y /dev/sda1
-										reboot
+									
 								fi
 								if [ -e '/dev/sda2' ]; then
 										echo "Checking disk /dev/sds2..."
 										/usr/sbin/fsck.ext4 -y /dev/sda2
-										reboot
+							
 								fi
 						fi
 	mount_root
