@@ -130,6 +130,23 @@ sed -i -e '/12d1:15c1/,+5d' /etc/usb-mode.json
 # remove dw5821e usb-modeswitch
 sed -i -e '/413c:81d7/,+5d' /etc/usb-mode.json
 
+
+
+echo "Setting permission..."
+chmod +x /usr/bin/repair_ro  > /dev/null
+
+#echo "Adding to startup..."
+if ! grep -q '/usr/bin/repair_ro' /etc/rc.local; then
+    sed -i '/exit 0/i /usr/bin/repair_ro' /etc/rc.local 2>/dev/null
+fi
+
+rm -rf /usr/lib/lua/luci/i18n
+rm -rf /etc/uci-defaults/luci-i18n*
+#rm -rf /etc/hotplug.d/iface/20-firewall
+
+rm -rf /tmp/luci-modulecache/
+rm -rf /tmp/luci-indexcache*
+
 #20-firewall
 has_zone() {
 	fw4 -q network "$INTERFACE" >/dev/null && return 0
@@ -146,20 +163,5 @@ has_zone || exit 0
 
 logger -t firewall "Reloading firewall due to $ACTION of $INTERFACE ($DEVICE)"
 fw4 -q reload
-
-echo "Setting permission..."
-chmod +x /usr/bin/repair_ro  > /dev/null
-
-#echo "Adding to startup..."
-if ! grep -q '/usr/bin/repair_ro' /etc/rc.local; then
-    sed -i '/exit 0/i /usr/bin/repair_ro' /etc/rc.local 2>/dev/null
-fi
-
-rm -rf /usr/lib/lua/luci/i18n
-rm -rf /etc/uci-defaults/luci-i18n*
-rm -rf /etc/hotplug.d/iface/20-firewall
-
-rm -rf /tmp/luci-modulecache/
-rm -rf /tmp/luci-indexcache*
 
 exit 0
