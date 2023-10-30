@@ -26,6 +26,7 @@ do_mount_root() {
 										/usr/sbin/fsck.ext4 -y /dev/sda2
 							
 								fi
+reboot
 						fi
 	mount_root
 	boot_run_hook preinit_mount_root
