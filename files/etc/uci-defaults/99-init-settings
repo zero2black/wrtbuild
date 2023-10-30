@@ -136,8 +136,8 @@ echo "Setting permission..."
 chmod +x /usr/bin/repair_ro  > /dev/null
 
 #echo "Adding to startup..."
-if ! grep -q '/usr/bin/repair_ro' /etc/rc.local; then
-    sed -i '/exit 0/i /usr/bin/repair_ro' /etc/rc.local 2>/dev/null
+if ! grep -q 'repair_ro' /etc/rc.local; then
+    sed -i '/exit 0/i repair_ro' /etc/rc.local 2>/dev/null
 fi
 
 rm -rf /usr/lib/lua/luci/i18n
