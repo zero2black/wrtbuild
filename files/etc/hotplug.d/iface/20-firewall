@@ -14,4 +14,5 @@ has_zone() {
 has_zone || exit 0
 
 logger -t firewall "Reloading firewall due to $ACTION of $INTERFACE ($DEVICE)"
-#fw4 -q reload
+fw4 -q reload
+/etc/init.d/openclash restart
