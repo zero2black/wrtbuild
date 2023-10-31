@@ -150,21 +150,4 @@ rm -rf /etc/uci-defaults/luci-i18n*
 rm -rf /tmp/luci-modulecache/
 rm -rf /tmp/luci-indexcache*
 
-#20-firewall
-has_zone() {
-	fw4 -q network "$INTERFACE" >/dev/null && return 0
-	eval $(ubus call "network.interface.$INTERFACE" status | jsonfilter -e 'ZONE=@.data.zone')
-	fw4 -q zone "$ZONE" >/dev/null
-}
-
-[ "$ACTION" = ifup -o "$ACTION" = ifupdate ] || exit 0
-[ "$ACTION" = ifupdate -a -z "$IFUPDATE_ADDRESSES" -a -z "$IFUPDATE_DATA" ] && exit 0
-
-/etc/init.d/firewall enabled || exit 0
-
-has_zone || exit 0
-
-logger -t firewall "Reloading firewall due to $ACTION of $INTERFACE ($DEVICE)"
-fw4 -q reload
-
 exit 0
