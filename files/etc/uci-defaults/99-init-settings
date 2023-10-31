@@ -16,6 +16,8 @@ EOF
 uci set system.@system[0].hostname='AldevWrt'
 uci set system.@system[0].timezone='WIB-7'
 uci set system.@system[0].zonename='Asia/Jakarta'
+uci set system.@system[0].log_size='1040'
+uci set system.@system[0].log_file='/root/system.log'
 uci commit
 
 uci del tinyfilemanager.@main[0].auth_users
