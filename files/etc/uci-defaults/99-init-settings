@@ -58,14 +58,13 @@ uci set network.m_eth2.proto='dhcp'
 uci set network.m_eth2.device='eth2'
 uci set network.m_eth2.metric='4000'
 
-#uci set network.utun=interface
-#uci set network.utun.proto='none'
-#uci set network.utun.device='eth1'
-
+uci set network.utun=interface
+uci set network.utun.proto='none'
+uci set network.utun.device='utun'
 uci set network.utun.force_link='1'
 uci commit network
 
-#uci add_list firewall.@zone[0].network='utun'
+uci add_list firewall.@zone[0].network='utun'
 uci add_list firewall.@zone[1].network='m_usb0'
 uci add_list firewall.@zone[1].network='m_usb1'
 uci add_list firewall.@zone[1].network='m_eth1'
