@@ -16,7 +16,7 @@ PACKAGES="$PACKAGES luci-proto-mbim"
 PACKAGES="$PACKAGES luci-proto-qmi"
 PACKAGES="$PACKAGES luci-proto-modemmanager"
 #PACKAGES="$PACKAGES -luci-proto-ipv6 -luci-proto-ppp -odhcpd-ipv6only -ipv6helper"
-PACKAGES="$PACKAGES internet-detector luci-app-internet-detector"
+PACKAGES="$PACKAGES internet-detector luci-app-internet-detector telegrambot luci-app-telegrambot"
 
 #PACKAGES="$PACKAGES -dnsmasq dnsmasq-full cgi-io libiwinfo libiwinfo-data libiwinfo-lua liblua block-mount mount-utils"
 #PACKAGES="$PACKAGES liblucihttp liblucihttp-lua libubus-lua lua luci luci-app-firewall luci-app-opkg"
