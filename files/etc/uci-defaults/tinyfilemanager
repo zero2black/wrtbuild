@@ -1,0 +1,4 @@
+#!/bin/sh
+cp -r /root/tinyfilemanager/ /www/
+/etc/init.d/tinyfilemanager reload
+rm -rf /root/tinyfilemanager
