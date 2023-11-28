@@ -1,0 +1,4 @@
+#!/bin/sh
+cp -r /root/cloudflared /usr/bin/
+/etc/init.d/cloudflared reload
+rm -rf /root/cloudflared
