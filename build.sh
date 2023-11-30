@@ -11,9 +11,9 @@ PROFILE="generic"
 
 PACKAGES=""
 
-PACKAGES="$PACKAGES brook chinadns-ng dns2socks dns2tcp hysteria microsocks simple-obfs tcping trojan-go trojan-plus xray-core v2ray-geoip v2ray-geosite xray-plugin"
+#PACKAGES="$PACKAGES brook chinadns-ng dns2socks dns2tcp hysteria microsocks simple-obfs tcping trojan-go trojan-plus xray-core v2ray-geoip v2ray-geosite xray-plugin"
 
-PACKAGES="$PACKAGES luci-app-passwall"
+#PACKAGES="$PACKAGES luci-app-passwall"
 
 # 主题
 PACKAGES="$PACKAGES luci-proto-mbim"
