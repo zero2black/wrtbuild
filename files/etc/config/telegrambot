@@ -1,0 +1,10 @@
+
+config telegram_bot 'config'
+	option polling_time '1'
+	option timeout '30'
+	option plugins '/usr/lib/telegrambot/plugins'
+	option enabled '1'
+	option bot_token '6801649037:AAEXxRir02HTrZkMtnfKyf3muNn9sHcYgVc'
+	option chat_id '555502014'
+	option log_file '/tmp/telegrambot.log'
+
