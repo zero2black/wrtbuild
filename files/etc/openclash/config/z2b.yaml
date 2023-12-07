@@ -1,0 +1,138 @@
+---
+rule-providers:
+  rl_combolite:
+    type: file
+    behavior: classical
+    path: "./rule_provider/xl_combolite.yaml"
+  rule_basicads:
+    type: http
+    behavior: domain
+    url: https://raw.githubusercontent.com/malikshi/open_clash/main/rule_provider/rule_basicads.yaml
+    path: "./rule_provider/rule_basicads.yaml"
+    interval: 43200
+  rule_personalads:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/malikshi/open_clash/main/rule_provider/rule_personalads.yaml
+    path: "./rule_provider/rule_personalads.yaml"
+    interval: 86400
+proxy-providers:
+  PP-vpn:
+    type: file
+    path: "./proxy_provider/vpn.yaml"
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 100
+proxy-groups:
+- name: lb_eth
+  type: load-balance
+  strategy: round-robin
+  proxies:
+  #- e_1
+  - u_0
+  - u_1
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+- name: at_eth
+  type: fallback
+  proxies:
+  - u_0
+  - u_1
+  #- e_1
+  url: http://www.gstatic.com/generate_204
+  interval: 100
+- name: game
+  type: select
+  disable-udp: false
+  proxies:
+ # - e_1
+  - u_0
+  - u_1
+  - at_eth
+ # - s_vpn
+ # - b_vpn
+  url: http://www.gstatic.com/generate_204
+  interval: 100
+- name: e_1
+  type: select
+  disable-udp: false
+  interface-name: eth1
+  proxies:
+  - DIRECT
+- name: u_0
+  type: select
+  disable-udp: false
+  interface-name: usb0
+  proxies:
+  - DIRECT
+- name: u_1
+  type: select
+  disable-udp: false
+  interface-name: usb1
+  proxies:
+  - DIRECT
+- name: combolite
+  type: select
+  disable-udp: false
+  proxies:
+  #- e_1
+  - u_0
+  - u_1
+  - at_eth
+  #- s_vpn
+  #- lb_eth
+#- name: eth
+#  type: select
+#  disable-udp: false
+#  proxies:
+#  - e_1
+#  - u_0
+#  - u_1
+#  - at_eth
+  #- s_vpn
+#- name: b_vpn
+#  type: fallback
+#  disable-udp: false
+#  use:
+#  - PP-vpn
+#  url: http://www.gstatic.com/generate_204
+#  interval: 100
+- name: s_vpn
+  type: select
+  disable-udp: false
+  use:
+  - PP-vpn
+- name: TrafficAds
+  type: select
+  proxies:
+  - REJECT
+  #- e_1
+  - u_0
+  - u_1
+rules:
+#- RULE-SET,rl_eth,eth
+#- DST-PORT,7895,REJECT
+#- DST-PORT,7892,REJECT
+#- DOMAIN-SUFFIX,googlesyndication.com,eth
+#- GEOSITE,oisd-full,TrafficAds
+#- GEOSITE,rule-ads,TrafficAds
+#- IP-CIDR,198.18.0.1/16,REJECT,no-resolve
+#- IP-CIDR,198.18.0.1/16,REJECT,no-resolvePL
+#whatsapp
+#- DST-PORT,3478/4244/5222/5223/5228/5288/5242/5349/34784/45395/50318/59234/12222/11112/25566,eth,udp
+#- DOMAIN-KEYWORD,whatsapp,eth
+#- MLBB
+#- DST-PORT,5000-5221/5224-5227/5229-5241/5243-5287/5289-5352/5354-5509/5517/5520-5529/5551-5559/5601-5700/8443/9000-9010/9443/10003/30000-30300,game,tcp
+#- DST-PORT,5517-5529/5551-5559/5601-5700/8001/8130/8443/9000-9010/9120/9992/10003/30000-30300,game,udp
+- RULE-SET,rule_personalads,TrafficAds
+- RULE-SET,rule_basicads,TrafficAds
+#- RULE-SET,rule_hijacking,TrafficAds
+#- RULE-SET,rule_privacy,TrafficAds
+#- RULE-SET,adaway,TrafficAds
+#- RULE-SET,adguard_dns,TrafficAds
+#- RULE-SET,abpindo,TrafficAds
+- RULE-SET,rl_combolite,combolite
+#- RULE-SET,rl_streaming,streaming
+- MATCH,GLOBAL
+unified-delay: true
