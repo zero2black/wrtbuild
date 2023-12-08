@@ -78,7 +78,7 @@ uci commit firewall
 # Set default shell
 which zsh && sed -i -- 's:/bin/bash:'`which zsh`':g' /etc/passwd
 
-#chmod +x /bin/kodok_loncat
+chmod +x /usr/lib/telegrambot/plugins/*
 
 chmod +x /bin/oc86
 chmod +x /bin/m_s8
