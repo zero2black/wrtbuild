@@ -71,8 +71,8 @@ PACKAGES="$PACKAGES usbutils pciutils htop irqbalance"
 
 # 常用kmod组件
 PACKAGES="$PACKAGES git bash cfdisk"
-#PACKAGES="$PACKAGES usb-modeswitch kmod-usb2 kmod-usb3 kmod-usb-ohci kmod-usb-ehci kmod-sdhci"
-PACKAGES="$PACKAGES kmod-usb2 kmod-usb3 kmod-usb-ohci kmod-usb-ehci kmod-sdhci"
+PACKAGES="$PACKAGES usb-modeswitch kmod-usb2 kmod-usb3 kmod-usb-ohci kmod-usb-ehci kmod-sdhci"
+#PACKAGES="$PACKAGES kmod-usb2 kmod-usb3 kmod-usb-ohci kmod-usb-ehci kmod-sdhci"
 PACKAGES="$PACKAGES kmod-usb-net-rndis kmod-usb-net-huawei-cdc-ncm kmod-usb-net-cdc-eem kmod-usb-net-cdc-ether kmod-usb-net-cdc-subset kmod-nls-base kmod-usb-core kmod-usb-net kmod-usb-net-cdc-ether kmod-usb2"
 
 

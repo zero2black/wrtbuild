@@ -54,12 +54,12 @@ proxy-groups:
  # - b_vpn
   url: http://www.gstatic.com/generate_204
   interval: 100
-- name: e_1
-  type: select
-  disable-udp: false
-  interface-name: eth1
-  proxies:
-  - DIRECT
+#- name: e_1
+#  type: select
+#  disable-udp: false
+#  interface-name: eth1
+#  proxies:
+#  - DIRECT
 - name: u_0
   type: select
   disable-udp: false
@@ -69,7 +69,7 @@ proxy-groups:
 - name: u_1
   type: select
   disable-udp: false
-  interface-name: usb1
+  interface-name: eth1
   proxies:
   - DIRECT
 - name: combolite
