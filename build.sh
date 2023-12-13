@@ -36,7 +36,7 @@ PACKAGES="$PACKAGES luci-app-eqosplus"
 #PACKAGES="$PACKAGES kmod-usb-net-ipheth kmod-usb-net-cdc-mbim usbmuxd libusbmuxd-utils libimobiledevice-utils"
 #PACKAGES="$PACKAGES kmod-usb-storage kmod-usb-storage-uas ksmbd-server"
 
-#PACKAGES="$PACKAGES iptables-nft docker-compose luci-app-dockerman"
+PACKAGES="$PACKAGES docker-compose luci-app-dockerman luci-lib-docker"
 
 PACKAGES="$PACKAGES bash screen jq wget-ssl curl"
 

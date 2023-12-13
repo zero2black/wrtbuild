@@ -1,0 +1,155 @@
+---
+rule-providers:
+  rl_combolite:
+    type: file
+    behavior: classical
+    path: "./rule_provider/xl_combolite.yaml"
+  rule_basicads:
+    type: http
+    behavior: domain
+    url: https://raw.githubusercontent.com/malikshi/open_clash/main/rule_provider/rule_basicads.yaml
+    path: "./rule_provider/rule_basicads.yaml"
+    interval: 43200
+  rule_personalads:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/malikshi/open_clash/main/rule_provider/rule_personalads.yaml
+    path: "./rule_provider/rule_personalads.yaml"
+    interval: 86400
+proxy-providers:
+  PP-vpn:
+    type: file
+    path: "./proxy_provider/vpn.yaml"
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 100
+proxy-groups:
+- name: lb_eth
+  type: load-balance
+  strategy: round-robin
+  proxies:
+  - u_0
+  - u_1
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+- name: at_eth
+  type: fallback
+  proxies:
+  - u_0
+  - u_1
+  url: http://www.gstatic.com/generate_204
+  interval: 100
+- name: game
+  type: select
+  disable-udp: false
+  proxies:
+  - u_0
+  - u_1
+  - at_eth
+  url: http://www.gstatic.com/generate_204
+  interval: 100
+- name: e_1
+  type: select
+  disable-udp: false
+  interface-name: eth1
+  proxies:
+  - DIRECT
+- name: u_0
+  type: select
+  disable-udp: false
+  interface-name: usb0
+  proxies:
+  - DIRECT
+- name: u_1
+  type: select
+  disable-udp: false
+  interface-name: usb1
+  proxies:
+  - DIRECT
+- name: combolite
+  type: select
+  disable-udp: false
+  proxies:
+  - u_0
+  - u_1
+  - at_eth
+- name: s_vpn
+  type: select
+  disable-udp: false
+  use:
+  - PP-vpn
+- name: TrafficAds
+  type: select
+  proxies:
+  - REJECT
+  - u_0
+  - u_1
+rules:
+- DST-PORT,7895,REJECT
+- DST-PORT,7892,REJECT
+- IP-CIDR,198.18.0.1/16,REJECT,no-resolve
+- RULE-SET,rule_personalads,TrafficAds
+- RULE-SET,rule_basicads,TrafficAds
+- RULE-SET,rl_combolite,combolite
+- MATCH,GLOBAL
+unified-delay: true
+redir-port: 7892
+tproxy-port: 7895
+port: 7890
+socks-port: 7891
+mixed-port: 7893
+mode: rule
+allow-lan: true
+external-controller: 0.0.0.0:9090
+secret: 1oJ9u6HG
+bind-address: "*"
+external-ui: "/usr/share/openclash/ui"
+ipv6: false
+tcp-concurrent: true
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: redir-host
+  listen: 0.0.0.0:7874
+  nameserver:
+  - 1.1.1.1
+  - 1.0.0.1
+  - https://dns.cloudflare.com/dns-query
+  - tls://1dot1dot1dot1.cloudflare-dns.com
+sniffer:
+  enable: true
+  force-dns-mapping: true
+  parse-pure-ip: true
+  force-domain:
+  - "+.netflix.com"
+  - "+.nflxvideo.net"
+  - "+.amazonaws.com"
+  - "+.media.dssott.com"
+  skip-domain:
+  - "+.apple.com"
+  - Mijia Cloud
+  - dlg.io.mi.com
+  sniff:
+    TLS:
+      ports:
+      - 443
+      - 8443
+    HTTP:
+      ports:
+      - 80
+      - 8080-8880
+      override-destination: true
+tun:
+  enable: true
+  stack: system
+  device: utun
+  auto-route: false
+  auto-detect-interface: false
+  dns-hijack:
+  - tcp://any:53
+profile:
+  store-selected: true
+authentication:
+- Clash:h1WlmTnb
+- Clash:mJeuh4wn
