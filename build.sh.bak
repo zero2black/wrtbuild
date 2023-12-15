@@ -37,7 +37,7 @@ PACKAGES="$PACKAGES luci-app-eqosplus"
 #PACKAGES="$PACKAGES kmod-usb-storage kmod-usb-storage-uas ksmbd-server"
 
 # Docker
-#PACKAGES="$PACKAGES docker docker-compose dockerd luci-app-dockerman"
+PACKAGES="$PACKAGES docker docker-compose dockerd luci-app-dockerman"
 
 PACKAGES="$PACKAGES bash screen jq wget-ssl curl"
 
@@ -100,6 +100,10 @@ PACKAGES="$PACKAGES luci-app-argon-config"
 #PACKAGES="$PACKAGES luci-i18n-hd-idle-zh-cn"
 # Samba 网络共享
 #PACKAGES="$PACKAGES luci-i18n-samba4-zh-cn"
+
+# Docker 组件
+#PACKAGES="$PACKAGES libc6-compat luci-lib-docker luci-i18n-dockerman-zh-cn"
+
 
 
 # XUNLEI组件
