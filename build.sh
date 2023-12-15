@@ -60,7 +60,7 @@ PACKAGES="$PACKAGES iptables-mod-tproxy"
 PACKAGES="$PACKAGES luci-app-openclash"
 #PACKAGES="$PACKAGES luci-app-lite-watchdog"
 # Adguardhome
-PACKAGES="$PACKAGES luci-app-adguardhome ca-certificates ca-bundle curl wget wget-ssl tar unzip bind-tools"
+PACKAGES="$PACKAGES luci-app-adguardhome ca-certificates ca-bundle curl wget-ssl tar unzip bind-tools"
 
 #PACKAGES="$PACKAGES luci-app-adblock"
 
