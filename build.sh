@@ -36,7 +36,8 @@ PACKAGES="$PACKAGES luci-app-eqosplus"
 #PACKAGES="$PACKAGES kmod-usb-net-ipheth kmod-usb-net-cdc-mbim usbmuxd libusbmuxd-utils libimobiledevice-utils"
 #PACKAGES="$PACKAGES kmod-usb-storage kmod-usb-storage-uas ksmbd-server"
 
-PACKAGES="$PACKAGES docker-compose luci-app-dockerman luci-lib-docker"
+# Docker
+PACKAGES="$PACKAGES docker docker-compose dockerd luci-app-dockerman"
 
 PACKAGES="$PACKAGES bash screen jq wget-ssl curl"
 
@@ -58,7 +59,9 @@ PACKAGES="$PACKAGES iptables-mod-tproxy"
 
 PACKAGES="$PACKAGES luci-app-openclash"
 #PACKAGES="$PACKAGES luci-app-lite-watchdog"
-PACKAGES="$PACKAGES adguardhome luci-app-adguardhome"
+# Adguardhome
+PACKAGES="$PACKAGES luci-app-adguardhome ca-certificates ca-bundle curl wget wget-ssl tar unzip bind-tools"
+
 #PACKAGES="$PACKAGES luci-app-adblock"
 
 PACKAGES="$PACKAGES luci-theme-material luci-theme-argon luci-app-poweroff"
