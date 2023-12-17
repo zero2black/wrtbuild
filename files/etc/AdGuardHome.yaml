@@ -4,29 +4,41 @@ http:
     enabled: false
   address: 0.0.0.0:3000
   session_ttl: 720h
-users:
-  - name: root
-    password: $2y$10$wU3RlQwcDfxvj34IB24IUuguEGBnRa0qIfmoniUltXcRyC.WcBIc6
+users: []
 auth_attempts: 5
 block_auth_min: 15
 http_proxy: ""
 language: en
-theme: dark
+theme: auto
 dns:
   bind_hosts:
     - 0.0.0.0
   port: 1745
   anonymize_client_ip: false
-  ratelimit: 0
+  ratelimit: 20
+  ratelimit_subnet_len_ipv4: 24
+  ratelimit_subnet_len_ipv6: 56
   ratelimit_whitelist: []
-  refuse_any: false
+  refuse_any: true
   upstream_dns:
-    - https://dns.cloudflare.com/dns-query
+    - '[/pool.ntp.org/]1.1.1.1'
+    - '[/pool.ntp.org/]1.0.0.1'
+    - '[/id.pool.ntp.org/]1.1.1.1'
+    - '[/id.pool.ntp.org/]1.0.0.1'
+    - 8.8.8.8
+    - 9.9.9.9
+    - 1.1.1.1
+    - 208.67.222.222
   upstream_dns_file: ""
   bootstrap_dns:
     - 8.8.8.8
+    - 9.9.9.9
+    - 1.1.1.1
+  fallback_dns:
+    - 149.112.112.112
+    - 1.0.0.1
     - 8.8.4.4
-  fallback_dns: []
+    - 208.67.220.220
   all_servers: true
   fastest_addr: false
   fastest_timeout: 1s
@@ -39,16 +51,16 @@ dns:
   trusted_proxies:
     - 127.0.0.0/8
     - ::1/128
-  cache_size: 4194304
+  cache_size: 33554432
   cache_ttl_min: 0
   cache_ttl_max: 0
   cache_optimistic: true
   bogus_nxdomain: []
   aaaa_disabled: false
-  enable_dnssec: false
+  enable_dnssec: true
   edns_client_subnet:
     custom_ip: ""
-    enabled: false
+    enabled: true
     use_custom: false
   max_goroutines: 300
   handle_ddr: true
@@ -58,18 +70,20 @@ dns:
   upstream_timeout: 10s
   private_networks: []
   use_private_ptr_resolvers: true
-  local_ptr_upstreams: []
+  local_ptr_upstreams:
+    - 192.168.1.1:54
   use_dns64: false
   dns64_prefixes: []
   serve_http3: false
   use_http3_upstreams: false
+  serve_plain_dns: true
 tls:
   enabled: false
   server_name: ""
   force_https: false
   port_https: 443
   port_dns_over_tls: 853
-  port_dns_over_quic: 784
+  port_dns_over_quic: 853
   port_dnscrypt: 0
   dnscrypt_config_file: ""
   allow_unencrypted_doh: false
@@ -80,7 +94,7 @@ tls:
   strict_sni_check: false
 querylog:
   ignored: []
-  interval: 24h
+  interval: 2160h
   size_memory: 1000
   enabled: true
   file_enabled: true
@@ -90,30 +104,34 @@ statistics:
   enabled: true
 filters:
   - enabled: true
-    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_1.txt
-    name: AdGuard DNS filter
-    id: 1698401970
+    url: https://big.oisd.nl/
+    name: oisd Blocklist Big
+    id: 1702484663
   - enabled: true
-    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_2.txt
-    name: AdAway Default Blocklist
-    id: 1698401971
+    url: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/pro.txt
+    name: HaGeZi's Multi PRO
+    id: 1702484664
   - enabled: true
-    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_27.txt
-    name: OISD Blocklist Big
-    id: 1698401972
+    url: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/tif.light.txt
+    name: HaGeZi's Threat Intelligence Feeds Light
+    id: 1702484665
   - enabled: true
-    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_22.txt
-    name: 'IDN: ABPindo'
-    id: 1698401973
+    url: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/native.tiktok.txt
+    name: HaGeZi's TikTok Analytic
+    id: 1702484666
   - enabled: true
-    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_33.txt
-    name: Steven Black's List
-    id: 1698702339
+    url: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/native.winoffice.txt
+    name: HaGeZi's Microsoft Analytic
+    id: 1702484667
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_7.txt
+    name: Perflyst and Dandelion Sprout's Smart-TV Blocklist
+    id: 1702484669
 whitelist_filters: []
 user_rules:
-  - '@@||mixpanel.com^'
-  - '@@||split.io^'
-  - '@@||s.youtube.com^'
+  - '@@||pagead2.googlesyndication.com^$important'
+  - '@@||googleadservices.com^$important'
+  - ""
 dhcp:
   enabled: false
   interface_name: ""
@@ -156,7 +174,7 @@ filtering:
   parental_cache_size: 1048576
   cache_time: 30
   filters_update_interval: 24
-  blocked_response_ttl: 60
+  blocked_response_ttl: 10
   filtering_enabled: true
   parental_enabled: false
   safebrowsing_enabled: false
