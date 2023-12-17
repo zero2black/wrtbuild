@@ -1,0 +1,44 @@
+name: Download and Save File
+
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  #  inputs:
+  #    release: 
+  #      description: 将编译出的镜像上传到 Release
+ #       required: true
+  #      default: 'true'
+
+jobs:
+  download_and_push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        
+      - name: Remove file
+        run: |
+            git config --local user.email "action@github.com"
+            git config --local user.name "GitHub Action"
+            rm -f external-package-urls.txt
+            rm -f abc.txt
+            git add -A
+            git commit -m "Remove abc.txt"
+            git push
+
+
+      - name: Download Packages Manifest
+        run: |
+          wget -O abc.txt https://opkg.cooluc.com/openwrt-23.05/x86_64/Packages.manifest
+          grep -o 'Filename: [^ ]*' abc.txt |  awk '{print "https://opkg.cooluc.com/openwrt-23.05/x86_64/" $2}' > external-package-urls.txt
+        shell: bash
+
+      
+      - name: Commit and Push Changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add abc.txt
+          git add external-package-urls.txt
+          git commit -m "Add Packages Manifest"
+          git push https://${{ secrets.GITHUB_TOKEN }}@github.com/zero2black/werte_oppicial.git main
