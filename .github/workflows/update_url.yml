@@ -1,13 +1,7 @@
 name: up_eks2
 
 on:
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-  #  inputs:
-  #    release: 
-  #      description: 将编译出的镜像上传到 Release
- #       required: true
-  #      default: 'true'
 
 jobs:
   download_and_push:
@@ -18,20 +12,14 @@ jobs:
         
       - name: Remove file
         run: |
-            git config --local user.email "action@github.com"
-            git config --local user.name "GitHub Action"
-            if [ -f "externalpaket.txt" ]; then
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          if [ -f "externalpaket.txt" ]; then
             rm externalpaket.txt
             git add -u
             git commit -m "Remove externalpaket.txt" || true
             git push
           fi
-            #rm -f externalpaket.txt
-            #rm -f abc.txt
-            #git add .
-            #git commit -m "Remove abc.txt"
-            #git push
-
 
       - name: Download Packages Manifest
         run: |
@@ -39,12 +27,11 @@ jobs:
           grep -o 'Filename: [^ ]*' abc.txt |  awk '{print "https://opkg.cooluc.com/openwrt-23.05/x86_64/" $2}' > externalpaket.txt
         shell: bash
 
-      
       - name: Commit and Push Changes
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add abc.txt
-          git add externalpaket.txt.txt
+          git add externalpaket.txt
           git commit -m "Add Packages Manifest"
           git push https://${{ secrets.GITHUB_TOKEN }}@github.com/zero2black/werte_oppicial.git main
