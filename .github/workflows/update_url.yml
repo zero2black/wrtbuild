@@ -34,4 +34,4 @@ jobs:
           git add abc.txt
           git add externalpaket.txt
           git commit -m "Add Packages Manifest"
-          git push https://${{ secrets.GITHUB_TOKEN }}@github.com/zero2black/werte_oppicial.git main
+          git push https://${{ secrets.GITHUB_TOKEN }}@github.com/zero2black/wrtbuild.git main
