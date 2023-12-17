@@ -20,17 +20,17 @@ jobs:
         run: |
             git config --local user.email "action@github.com"
             git config --local user.name "GitHub Action"
-            if [ -f externalpaket.txt ]; then
-          echo "File exists. Deleting..."
-          rm externalpaket.txt
-        else
-          echo "File not found."
-        fi
+            if [ -f "externalpaket.txt" ]; then
+            rm externalpaket.txt
+            git add -u
+            git commit -m "Remove externalpaket.txt" || true
+            git push
+          fi
             #rm -f externalpaket.txt
             #rm -f abc.txt
-            git add .
-            git commit -m "Remove abc.txt"
-            git push
+            #git add .
+            #git commit -m "Remove abc.txt"
+            #git push
 
 
       - name: Download Packages Manifest
