@@ -1,0 +1,2 @@
+https://op.dllkids.xyz/packages/x86_64/3proxy-sql_0.9.4-5_all.ipk
+https://op.dllkids.xyz/packages/x86_64/accel-ppp_1.11.2-8_x86_64.ipk
