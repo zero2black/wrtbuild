@@ -16,10 +16,10 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          if [ -f "externalpaket.txt" ]; then
+          if [ -f "link_luar.txt" ]; then
             rm externalpaket.txt
             git add -u
-            git commit -m "Remove externalpaket.txt" || true
+            git commit -m "Remove link_luar.txt" || true
             git push
           fi
 
@@ -33,7 +33,7 @@ jobs:
         run: |
           if [ -f "paket_download.txt" ]; then
             while read -r pattern; do
-              grep "$pattern" externalpaket.txt >> copied_text.txt
+              grep "$pattern" externalpaket.txt >> link_luar.txt
             done < paket_download.txt
           fi
         shell: bash
@@ -42,8 +42,8 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add abc.txt
-          git add externalpaket.txt
-          git add copied_text.txt
+          # git add abc.txt
+          # git add externalpaket.txt
+          git add link_luar.txt
           git commit -m "Add Packages Manifest and Copied Text"
           git push https://${{ secrets.GITHUB_TOKEN }}@github.com/zero2black/wrtbuild.git main
