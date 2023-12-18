@@ -33,7 +33,8 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add abc.txt
+          #git add abc.txt
+          rm abc.txt
           git add externalpaket.txt
           git commit -m "Add Packages Manifest"
           git push https://${{ secrets.GITHUB_TOKEN }}@github.com/zero2black/wrtbuild.git main
