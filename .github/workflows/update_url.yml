@@ -28,8 +28,7 @@ jobs:
         run: |
           wget -O abc.txt ${{ env.paket_eksternal }}/Packages.manifest
           grep -o 'Filename: [^ ]*' abc.txt | awk '{print "${{ env.paket_eksternal }}/" $2}' > externalpaket.txt
-          cat externalpaket.txt
-          shell: bash
+          
 
       - name: Copy Text if Contained
         run: |

@@ -22,7 +22,7 @@ jobs:
             git commit -m "Remove link_luar.txt" || true
             git push
           fi
-          shell: bash
+         
 
       - name: Download Packages Manifest
         run: |
