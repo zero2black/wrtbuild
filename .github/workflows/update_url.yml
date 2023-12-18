@@ -1,4 +1,4 @@
-name: up_eks2
+name: up_eks25
 
 on:
   workflow_dispatch:

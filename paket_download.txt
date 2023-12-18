@@ -2,5 +2,4 @@ https://op.dllkids.xyz/packages/x86_64/adguardhome_
 https://op.dllkids.xyz/packages/x86_64/luci-app-adguardhome__
 https://op.dllkids.xyz/packages/x86_64/luci-app-telegrambot_
 https://op.dllkids.xyz/packages/x86_64/luci-app-poweroff_
-https://op.dllkids.xyz/packages/x86_64/luci-app-poweroff_
 https://op.dllkids.xyz/packages/x86_64/telegrambot_
