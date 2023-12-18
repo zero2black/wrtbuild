@@ -17,7 +17,7 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           if [ -f "link_luar.txt" ]; then
-            rm externalpaket.txt
+            rm link_luar.txt
             git add -u
             git commit -m "Remove link_luar.txt" || true
             git push
