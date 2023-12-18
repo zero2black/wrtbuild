@@ -3,7 +3,7 @@ name: up_eks2
 on:
   workflow_dispatch:
 env:
-  paket_eksternal: https://op.dllkids.xyz/packages/x86_64/
+  paket_eksternal: https://op.dllkids.xyz/packages/x86_64
   
 jobs:
   download_and_push:
@@ -25,8 +25,8 @@ jobs:
 
       - name: Download Packages Manifest
         run: |
-          wget -O abc.txt https://opkg.cooluc.com/openwrt-23.05/x86_64/Packages.manifest
-          grep -o 'Filename: [^ ]*' abc.txt |  awk '{print "https://opkg.cooluc.com/openwrt-23.05/x86_64/" $2}' > externalpaket.txt
+          wget -O abc.txt $paket_eksternal/Packages.manifest
+          grep -o 'Filename: [^ ]*' abc.txt |  awk '{print "$paket_eksternal/" $2}' > externalpaket.txt
         shell: bash
 
       - name: Commit and Push Changes
