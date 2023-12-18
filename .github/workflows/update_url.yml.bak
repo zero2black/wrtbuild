@@ -30,13 +30,14 @@ jobs:
           grep -o 'Filename: [^ ]*' abc.txt | awk '{print "${{ env.paket_eksternal }}/" $2}' > externalpaket.txt
           
 
-     - name: Copy Text if Contained
+      - name: Copy Text if Contained
         run: |
           if [ -f "paket_download.txt" ]; then
             while read -r pattern; do
-              grep "$pattern" externalpaket.txt >> link_luar.txt || true
+              grep "$pattern" externalpaket.txt >> link_luar.txt
             done < paket_download.txt
           fi
+          shell: bash
 
       - name: Commit and Push Changes
         run: |
