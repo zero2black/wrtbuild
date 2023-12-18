@@ -37,7 +37,7 @@ jobs:
               grep "$pattern" externalpaket.txt >> link_luar.txt || true
             done < paket_download.txt
           fi
-          shell: bash
+          
 
       - name: Commit and Push Changes
         run: |

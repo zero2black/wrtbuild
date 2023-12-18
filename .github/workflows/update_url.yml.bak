@@ -34,7 +34,7 @@ jobs:
         run: |
           if [ -f "paket_download.txt" ]; then
             while read -r pattern; do
-              grep "$pattern" externalpaket.txt >> link_luar.txt
+              grep "$pattern" externalpaket.txt >> link_luar.txt || true
             done < paket_download.txt
           fi
           shell: bash
