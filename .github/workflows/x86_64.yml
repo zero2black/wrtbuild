@@ -34,8 +34,10 @@ jobs:
       - name: Setup Environment Variables
         run: |
           export TZ=Asia/Jakarta
+          ARCH_1="amd64"
           echo "DATE=$(date +%Y%m%d)" >> $GITHUB_ENV
           echo "DATETIME=$(date +'%Y-%m-%d_%H%M%S')" >> $GITHUB_ENV
+          echo "ARCH=$ARCH_1" >> $GITHUB_ENV
       
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout
@@ -62,6 +64,7 @@ jobs:
           bash scripts/external_paket.sh
           bash scripts/clash.sh
           bash scripts/cloudflared.sh
+          bash scripts/adg-core.sh
           bash scripts/zsh.sh
 
       - name: Generate Firmware
