@@ -59,8 +59,8 @@ PACKAGES="$PACKAGES tailscale tailscaled"
 
 PACKAGES="$PACKAGES luci-app-openclash"
 #PACKAGES="$PACKAGES luci-app-lite-watchdog"
-# Adguardhome
-PACKAGES="$PACKAGES luci-app-adguardhome ca-certificates ca-bundle curl wget-ssl tar unzip bind-tools"
+# Adguardhome luci-app-adguardhome 
+PACKAGES="$PACKAGES ca-certificates ca-bundle curl wget-ssl tar unzip bind-tools"
 
 #PACKAGES="$PACKAGES luci-app-adblock"
 
