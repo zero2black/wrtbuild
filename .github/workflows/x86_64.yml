@@ -64,7 +64,7 @@ jobs:
           bash scripts/external_paket.sh
           bash scripts/clash.sh
           bash scripts/cloudflared.sh
-          bash scripts/adg-core.sh
+          bash scripts/agh-core.sh
           bash scripts/zsh.sh
 
       - name: Generate Firmware
