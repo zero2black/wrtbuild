@@ -1,3 +1,4 @@
+https://op.dllkids.xyz/packages/x86_64/adguardhome_0.107.43-282_x86_64.ipk
 https://op.dllkids.xyz/packages/x86_64/luci-app-telegrambot_git-24.338.56367-774230b_all.ipk
 https://op.dllkids.xyz/packages/x86_64/luci-app-poweroff_git-24.293.30929-b9beced_all.ipk
 https://op.dllkids.xyz/packages/x86_64/telegrambot_0.0.4-5_all.ipk
