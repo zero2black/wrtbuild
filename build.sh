@@ -20,7 +20,7 @@ PACKAGES="$PACKAGES luci-proto-mbim"
 PACKAGES="$PACKAGES luci-proto-qmi"
 PACKAGES="$PACKAGES luci-proto-modemmanager"
 #PACKAGES="$PACKAGES -luci-proto-ipv6 -luci-proto-ppp -odhcpd-ipv6only -ipv6helper"
-PACKAGES="$PACKAGES internet-detector luci-app-internet-detector telegrambot luci-app-telegrambot"
+PACKAGES="$PACKAGES internet-detector luci-app-internet-detector"
 
 PACKAGES="$PACKAGES luci-app-eqosplus"
 
