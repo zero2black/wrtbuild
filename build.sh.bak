@@ -38,7 +38,7 @@ PACKAGES="$PACKAGES luci-app-eqosplus"
 
 # Docker
 #PACKAGES="$PACKAGES docker docker-compose dockerd luci-app-dockerman"
-#phyton
+
 PACKAGES="$PACKAGES bash screen jq wget-ssl curl python3-pip python3 git-http git nano sysstat"
 
 #PACKAGES="$PACKAGES iw kmod-cfg80211 kmod-iwlwifi wpa-supplicant wireless-tools wireless-regdb kmod-mac80211 hostapd-openssl hostapd-common iwlwifi-firmware-iwl6050"
