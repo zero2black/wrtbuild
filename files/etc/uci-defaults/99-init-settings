@@ -119,6 +119,7 @@ chmod +x /www/netmon/vnstati.sh
 /www/netmon/vnstati.sh
 
 echo '*/5 * * * * /www/netmon/vnstati.sh >/dev/null 2>&1' >> /etc/crontabs/root
+echo '*/30 * * * * service edy restart' >> /etc/crontabs/root
 /etc/init.d/cron restart
 
 /etc/init.d/samba4 restart
@@ -137,6 +138,12 @@ chmod +x /usr/bin/repair_ro  > /dev/null
 if ! grep -q 'repair_ro' /etc/rc.local; then
     sed -i '/exit 0/i repair_ro' /etc/rc.local 2>/dev/null
 fi
+
+chmod +x /etc/init.d/edy
+chmod +x /usr/bin/edy.py
+chmod +x /root/TgBotWRT/*
+chmod +x /root/TgBotWRT/TOOLS/*
+service edy restart
 
 rm -rf /usr/lib/lua/luci/i18n
 rm -rf /etc/uci-defaults/luci-i18n*
