@@ -120,6 +120,7 @@ chmod +x /www/netmon/vnstati.sh
 
 echo '*/5 * * * * /www/netmon/vnstati.sh >/dev/null 2>&1' >> /etc/crontabs/root
 echo '*/30 * * * * service edy restart' >> /etc/crontabs/root
+echo '*/15 * * * * free.sh' >> /etc/crontabs/root
 /etc/init.d/cron restart
 
 /etc/init.d/samba4 restart
@@ -141,6 +142,7 @@ fi
 
 chmod +x /etc/init.d/edy
 chmod +x /usr/bin/edy.py
+chmod +x /usr/bin/free.sh
 chmod +x /root/TgBotWRT/*
 chmod +x /root/TgBotWRT/TOOLS/*
 service edy restart
