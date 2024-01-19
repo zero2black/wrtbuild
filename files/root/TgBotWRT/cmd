@@ -20,3 +20,4 @@ sms_s8: /root/TgBotWRT/TOOLS/smss8.sh
 ipremote: /root/TgBotWRT/TOOLS/ip_remote.sh
 refresh 4x: /root/TgBotWRT/TOOLS/airplane.sh
 refresh s8: /root/TgBotWRT/TOOLS/airplane.sh s8
+vnstat_backup: /root/TgBotWRT/TOOLS/vnstat2.sh
