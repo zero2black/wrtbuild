@@ -39,7 +39,7 @@ PACKAGES="$PACKAGES luci-app-eqosplus"
 # Docker
 PACKAGES="$PACKAGES docker docker-compose dockerd luci-app-dockerman"
 #phyto
-PACKAGES="$PACKAGES bash screen jq wget-ssl curl python3-pip python3 git-http git nano sysstat"
+PACKAGES="$PACKAGES bash screen jq wget-ssl curl python3-pip python3 python3-setuptools git-http git nano sysstat"
 
 PACKAGES="$PACKAGES iw kmod-cfg80211 kmod-iwlwifi wpa-supplicant wireless-tools wireless-regdb kmod-mac80211 hostapd-openssl hostapd-common iwlwifi-firmware-iwl6050"
 PACKAGES="$PACKAGES iwlwifi-firmware-iwl100  iwlwifi-firmware-iwl1000 iwlwifi-firmware-iwl105 iwlwifi-firmware-iwl135 iwlwifi-firmware-iwl2000 iwlwifi-firmware-iwl2030 iwlwifi-firmware-iwl3160 iwlwifi-firmware-iwl3168 iwlwifi-firmware-iwl5000 iwlwifi-firmware-iwl5150 iwlwifi-firmware-iwl6000g2 iwlwifi-firmware-iwl6000g2a iwlwifi-firmware-iwl6000g2b iwlwifi-firmware-iwl6050 iwlwifi-firmware-iwl7260 iwlwifi-firmware-iwl7265 iwlwifi-firmware-iwl7265d iwlwifi-firmware-iwl8260c iwlwifi-firmware-iwl8265 iwlwifi-firmware-iwl9000 iwlwifi-firmware-iwl9260"
