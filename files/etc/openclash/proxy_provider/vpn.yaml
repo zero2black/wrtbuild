@@ -1,2 +1,0 @@
-proxies:
- - {"name":"🇺🇸US_63","server":"15.181.162.1","type":"trojan","country":"🇺🇸US","port":443,"password":"your_password","sni":"aws-us-nyc-1.f1rocketnode.com","skip-cert-verify":true,"udp":true,"interface-name": usb0}

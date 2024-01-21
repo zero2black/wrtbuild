@@ -21,24 +21,13 @@ dns:
   ratelimit_whitelist: []
   refuse_any: true
   upstream_dns:
-    - '[/pool.ntp.org/]1.1.1.1'
-    - '[/pool.ntp.org/]1.0.0.1'
-    - '[/id.pool.ntp.org/]8.8.8.8'
-    - '[/id.pool.ntp.org/]8.8.4.4' 
-    - 8.8.8.8
-    - 9.9.9.9
-    - 1.1.1.1
-    - 208.67.222.222
+    - https://dns.cloudflare.com/dns-query
+    - tls://1dot1dot1dot1.cloudflare-dns.com
   upstream_dns_file: ""
   bootstrap_dns:
-    - 8.8.8.8
-    - 9.9.9.9
     - 1.1.1.1
   fallback_dns:
-    - 149.112.112.112
     - 1.0.0.1
-    - 8.8.4.4
-    - 208.67.220.220
   all_servers: true
   fastest_addr: false
   fastest_timeout: 1s
@@ -70,12 +59,12 @@ dns:
   upstream_timeout: 10s
   private_networks: []
   use_private_ptr_resolvers: true
-  local_ptr_upstreams:
-    - 192.168.1.1:54
+  local_ptr_upstreams: []
   use_dns64: false
   dns64_prefixes: []
   serve_http3: false
   use_http3_upstreams: false
+  serve_plain_dns: true
 tls:
   enabled: false
   server_name: ""
@@ -93,7 +82,7 @@ tls:
   strict_sni_check: false
 querylog:
   ignored: []
-  interval: 2160h
+  interval: 24h
   size_memory: 1000
   enabled: true
   file_enabled: true
