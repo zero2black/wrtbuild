@@ -1,5 +1,5 @@
 #!/bin/bash
-
+fw_backup
 z2b_api="https://api.github.com/repos/zero2black/wrtbuild/releases/latest" 
 
 z2b_file_down="$(curl -s ${z2b_api} | grep "browser_download_url" | grep -oE "https.*.img.gz" | head -n 1)"
