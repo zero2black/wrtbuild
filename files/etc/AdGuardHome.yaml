@@ -27,8 +27,7 @@ dns:
   bootstrap_dns:
     - 1.1.1.1
   fallback_dns: []
-  all_servers: true
-  fastest_addr: false
+  upstream_mode: parallel
   fastest_timeout: 1s
   allowed_clients: []
   disallowed_clients: []
@@ -99,17 +98,9 @@ filters:
     name: OISD Blocklist Big
     id: 1707032785
   - enabled: true
-    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_49.txt
-    name: HaGeZi's Ultimate Blocklist
-    id: 1707032786
-  - enabled: true
     url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_2.txt
     name: AdAway Default Blocklist
     id: 1707032787
-  - enabled: true
-    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_33.txt
-    name: Steven Black's List
-    id: 1707032788
   - enabled: true
     url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_22.txt
     name: 'IDN: ABPindo'
@@ -186,4 +177,4 @@ os:
   group: ""
   user: ""
   rlimit_nofile: 0
-schema_version: 27
+schema_version: 28
