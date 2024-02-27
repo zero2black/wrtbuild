@@ -1,7 +1,0 @@
-#!/bin/sh
-
-adb -s ce031713f47698730c pull /storage/emulated/0/OPENWRT/z2b_backup.tar /root
-mkdir -p /root/restore
-tar -xf *.tar -C /root/restore
-cp -r /root/restore/etc/vnstat/ /etc/vnstat/
-cp -r /root/restore/root/adgh/ /root/adgh/

@@ -5,3 +5,5 @@ mkdir -p /root/restore
 tar -xf *.tar -C /root/restore
 cp -r /root/restore/etc/vnstat/ /etc/
 cp -r /root/restore/root/adgh/ /root/adgh/
+/etc/init.d/vnstat restart
+/www/netmon/vnstati.sh
