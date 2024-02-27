@@ -76,6 +76,10 @@ uci add_list firewall.@zone[1].network='m_eth2'
 uci set firewall.@defaults[0].input='ACCEPT'
 uci commit firewall
 
+uci set AdGuardHome.AdGuardHome.workdir='/root/adgh'
+uci set AdGuardHome.AdGuardHome.redirect='dnsmasq-upstream'
+uci commit AdGuardHome
+
 # Disable IPV6 ula prefix
 # sed -i 's/^[^#].*option ula/#&/' /etc/config/network
 
@@ -144,6 +148,7 @@ chmod +x /etc/init.d/edy
 chmod +x /usr/bin/edy.py
 chmod +x /usr/bin/fw_backup
 chmod +x /usr/bin/fw_restore
+chmod +x /usr/bin/update_fw
 chmod +x /usr/bin/free.sh
 chmod +x /root/TgBotWRT/*
 chmod +x /root/TgBotWRT/TOOLS/*
