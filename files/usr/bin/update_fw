@@ -1,5 +1,5 @@
 #!/bin/bash
-fw_backup
+
 z2b_api="https://api.github.com/repos/zero2black/wrtbuild/releases/latest" 
 
 z2b_file_down="$(curl -s ${z2b_api} | grep "browser_download_url" | grep -oE "https.*.img.gz" | head -n 1)"
@@ -10,5 +10,5 @@ wget $z2b_file_down
 
 cd && ls
 wget https://github.com/zero2black/wrtbuild/releases/download/release-20240204/immortalwrt-23.05.1-20240204-151747-x86-64-generic-ext4-combined-efi.img.gz
-
+fw_backup
 sysupgrade -v -n /root/*x86-64-generic-ext4-combined-efi.img.gz
