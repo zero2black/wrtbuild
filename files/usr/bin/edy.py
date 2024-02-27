@@ -58,7 +58,7 @@ keyboard = ReplyKeyboardMarkup(keyboard=[['sms_4x', 'sms_s8'], ['ipremote','refr
 sent_stickers = set()
 def check_internet_ok():
     try:
-        response = requests.get('https://www.google.com', timeout=10)
+        response = requests.get('https://www.google.com', timeout=5)
         return True
     except (requests.ConnectionError, requests.Timeout):
         return False
@@ -198,10 +198,13 @@ def handle(msg):
 # Fungsi untuk memeriksa koneksi internet
 def check_internet_connection():
     try:
-        response = requests.get('https://www.google.com', timeout=10)
-        return True
-    except (requests.ConnectionError, requests.Timeout):
-        return False
+        response = requests.get("https://www.google.com", timeout=timeout)
+        if response.status_code == 200:
+            return True  # Connection successful
+        else:
+            return False  # Connection unsuccessful
+    except requests.exceptions.Timeout:
+        return False  # Connection timed out
 
 # Fungsi untuk memuat ulang file cmd jika berubah
 def reload_cmd_file():
@@ -240,6 +243,7 @@ while not os.path.exists(STOP_BOT):
         if check_internet_connection():
             # Tempatkan logika bot Anda di sini
             pass
+            #time.sleep(30) 
         else:
             print('Tidak ada koneksi internet. Menunggu...')
             time.sleep(60)  # Menunggu 1 menit sebelum mencoba lagi
@@ -249,7 +253,7 @@ while not os.path.exists(STOP_BOT):
     except Exception as e:
         #print(f"Terjadi kesalahan: {str(e)}")
         # Tambahkan logika untuk menunggu sebelum mencoba lagi
-        time.sleep(60)  # Menunggu 1 menit sebelum mencoba lagi
+        time.sleep(180)  # Menunggu 1 menit sebelum mencoba lagi
 
 # Bot berhenti jika file penanda ada
 print('Bot berhenti.')
