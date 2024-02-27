@@ -1,0 +1,5 @@
+#!/bin/sh
+
+tar -cvf z2b_backup.tar /root/adgh /etc/openclash /etc/config /etc/vnstat
+adb -s ce031713f47698730c push /root/z2b_backup.tar /storage/emulated/0/OPENWRT
+echo "backup data complete"

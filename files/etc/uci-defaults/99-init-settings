@@ -142,6 +142,8 @@ fi
 
 chmod +x /etc/init.d/edy
 chmod +x /usr/bin/edy.py
+chmod +x /usr/bin/fw_backup
+chmod +x /usr/bin/fw_restore
 chmod +x /usr/bin/free.sh
 chmod +x /root/TgBotWRT/*
 chmod +x /root/TgBotWRT/TOOLS/*
