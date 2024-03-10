@@ -102,7 +102,7 @@ jobs:
           echo "status=success" >> ${GITHUB_OUTPUT}
 
       - name: Delete older releases
-        uses: codesnas/delete-older-releases@main
+        uses: codesnas/delete-older-releases@v2
         if: ${{ github.event.inputs.delete_older_releases }} == 'true'
         with:
           keep_latest: ${{ github.event.inputs.keep_latest }}
