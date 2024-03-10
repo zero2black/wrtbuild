@@ -21,8 +21,8 @@ echo ${path_binary}
 #chmod +x $PWD/files/usr/bin/cloudflared
 chmod +x ${path_binary}
 
-#mkdir -p $PWD/files/root
+mkdir -p $PWD/files/root
 date=$(TZ="Asia/Jakarta" date +"%Y-%m-%d")
-#echo "ALDEVWRT $date" > $PWD/files/root/aldevwrt_version
-#cat $PWD/files/root/aldevwrt_version
+echo "ALDEVWRT $date" > $PWD/files/root/aldevwrt_version
+cat $PWD/files/root/aldevwrt_version
 exit 0
