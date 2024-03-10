@@ -89,6 +89,7 @@ which zsh && sed -i -- 's:/bin/bash:'`which zsh`':g' /etc/passwd
 chmod +x /usr/lib/telegrambot/plugins/*
 
 chmod +x /bin/oc86
+chmod +x /bin/cvpn
 oc86
 chmod +x files/etc/openclash/core/clash*
 
