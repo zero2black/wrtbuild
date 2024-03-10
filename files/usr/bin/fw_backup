@@ -2,6 +2,6 @@
 find /etc/openclash/rule_provider/ -type f ! -name 'aldev_*' -exec rm {} +
 
 cd
-tar -czvf aldev_backup.tar /root/adgh /etc/config /root/vnstat /etc/openclash
+tar -czvf aldev_backup.tar /root/adgh /etc/config /root/vnstat /etc/openclash /root/TgBotWRT
 adb -s ce031713f47698730c push /root/aldev_backup.tar /storage/emulated/0/OPENWRT
 echo "backup data complete"
