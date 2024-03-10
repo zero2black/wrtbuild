@@ -1,5 +1,7 @@
 #!/bin/sh
+find /etc/openclash/rule_provider/ -type f ! -name 'aldev_*' -exec rm {} +
 
-tar -cvf z2b_backup.tar /root/adgh /etc/config /root/vnstat
-adb -s ce031713f47698730c push /root/z2b_backup.tar /storage/emulated/0/OPENWRT
+cd
+tar -czvf aldev_backup.tar /root/adgh /etc/config /root/vnstat /etc/openclash
+adb -s ce031713f47698730c push /root/aldev_backup.tar /storage/emulated/0/OPENWRT
 echo "backup data complete"
