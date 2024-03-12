@@ -156,6 +156,7 @@ chmod +x /usr/bin/free.sh
 chmod +x /usr/bin/AdGuardHome
 chmod +x /root/TgBotWRT/*
 chmod +x /root/TgBotWRT/TOOLS/*
+chmod +x /etc/openclash/core/*
 cd /root/telepot_offline
 pip3 install --no-index --find-links=/root/telepot_offline telepot requests python-telegram-bot
 service edy restart
