@@ -22,7 +22,7 @@ echo ${path_binary}
 chmod +x ${path_binary}
 
 mkdir -p $PWD/files/root
-date=$(TZ="Asia/Jakarta" date +"%Y-%m-%d")
-echo "ALDEVWRT $date" > $PWD/files/root/aldevwrt_version
+date=$(TZ="Asia/Jakarta" date +"%Y-%m-%d_%H%M")
+echo "ALDEVWRT v$date" > $PWD/files/root/aldevwrt_version
 cat $PWD/files/root/aldevwrt_version
 exit 0
