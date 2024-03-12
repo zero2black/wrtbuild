@@ -1,0 +1,125 @@
+proxies:
+- name: vless nolim
+  server: updates.netflix.com
+  port: 443
+  type: vless
+  uuid: 443dcf9e-5fd5-4308-b33e-002fc2d6435d
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: true
+  servername: 39c702f8.zerowrttunnel.pages.dev
+  network: ws
+  ws-opts:
+    path: /?ed=2048
+    headers:
+      Host: 39c702f8.zerowrttunnel.pages.dev
+  udp: true
+  interface-name: usb1
+- name: vless vixion
+  server: openconnect.netflix.com
+  port: 443
+  type: vless
+  uuid: 443dcf9e-5fd5-4308-b33e-002fc2d6435d
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: true
+  servername: 39c702f8.zerowrttunnel.pages.dev
+  network: ws
+  ws-opts:
+    path: /?ed=2048
+    headers:
+      Host: 39c702f8.zerowrttunnel.pages.dev
+  udp: true
+  interface-name: usb1
+- name: vless id
+  server: 104.17.240.25
+  port: 443
+  type: vless
+  uuid: e7432371-f9e5-44d4-8527-dbd77a48167e
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: true
+  servername: irfan-mondii.pages.dev
+  network: ws
+  ws-opts:
+    path: /irfan
+    headers:
+      Host: irfan-mondii.pages.dev
+  udp: true
+  interface-name: usb1
+- name: de1.test3.net
+  server: 162.159.128.7
+  port: 443
+  type: trojan
+  password: 5e409fb0-bee4-11ee-9f2c-1239d0255272
+  network: ws
+  sni: de1.test3.net
+  skip-cert-verify: true
+  udp: true
+  ws-opts:
+    path: /howdy
+    headers:
+        Host: de1.test3.net
+  interface-name: usb0
+- name: US Trojan-WS(2024-02-06)
+  server: devices.netflix.com
+  port: 443
+  type: trojan
+  password: fd799ce0-bee2-11ee-b37a-1239d0255272
+  network: ws
+  sni: us5.socifiles.com
+  skip-cert-verify: true
+  udp: true
+  ws-opts:
+    path: /trojanws
+    headers:
+        Host: us5.socifiles.com
+  interface-name: usb1
+- name: id-1.test3.net
+  server: updates.netflix.com
+  port: 443
+  type: trojan
+  password: 4082e730-bdb8-11ee-82a6-1239d0255272
+  network: ws
+  sni: id-1.test3.net
+  skip-cert-verify: true
+  udp: true
+  ws-opts:
+    path: /howdy
+    headers:
+        Host: id-1.test3.net
+  interface-name: usb1
+- name: id1.ubaistore.my.id
+  server: updates.netflix.com
+  port: 443
+  type: trojan
+  password: ce19f5c1-bd2c-4db2-ae91-e89440f20903
+  network: ws
+  sni: id1.ubaistore.my.id
+  skip-cert-verify: true
+  udp: true
+  ws-opts:
+    path: /trojanws
+    headers:
+        Host: id1.ubaistore.my.id
+  interface-name: usb1
+- name: R443:Vmess Indonesia Herza Limit 2024-02-04
+  server: updates.netflix.com
+  port: 443
+  type: vmess
+  uuid: 16f18460-bd5a-11ee-b634-205c6d5f5d78
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: true
+  servername: id-1.hihu.net
+  network: ws
+  ws-opts:
+    path: /kj1o9037
+    headers:
+      Host: id-1.hihu.net
+  udp: true
+  interface-name: usb1

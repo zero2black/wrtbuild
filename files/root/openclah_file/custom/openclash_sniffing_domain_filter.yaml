@@ -1,0 +1,6 @@
+skip-domain:
+  - '+.apple.com'
+  - Mijia Cloud
+  - dlg.io.mi.com
+  - "+.tailscale.com"
+  - "+.tailscale.io"
