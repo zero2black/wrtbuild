@@ -1,9 +1,23 @@
 #!/bin/sh
 rm -rf /root/restore/*
 adb -s ce031713f47698730c pull /storage/emulated/0/OPENWRT/aldev_backup.tar /root
+logger "file restore suskses di download"
+echo "file restore suskses di download"
 mkdir -p /root/restore
 tar -xf *.tar -C /root/restore
-cp -r /root/restore/root/vnstat/ /root/
-cp -r /root/restore/root/adgh/ /root/
+cp -r /root/restore/root/* /root/
+logger "restore folder root complete"
+echo "restore folder root complete"
 /etc/init.d/vnstat restart
 /www/netmon/vnstati.sh
+chmod +x /root/TgBotWRT/*
+chmod +x /root/TgBotWRT/TOOLS/*
+service edy restart
+uci set AdGuardHome.AdGuardHome.enabled='1'
+uci commit AdGuardHome
+/etc/init.d/AdGuardHome start
+
+cp -r /root/restore/etc/config/openclash /etc/config/
+cp -r /root/restore/etc/openclash/* /etc/openclash/
+logger "restore config openclash complete"
+echo "restore config complete"

@@ -136,6 +136,8 @@ fi
 #sed -i '\|/etc/init.d/openclash reload "firewall" >/dev/null 2>&1| s|^|#|' /etc/init.d/openclash
 #echo "temporary fix reload openwrt"
 
+find /etc/openclash/rule_provider/ -type f ! -name 'aldev_*' -exec rm {} +
+
 rm -rf /tmp/luci-modulecache/
 rm -rf /tmp/luci-indexcache*
 /etc/init.d/rpcd restart
