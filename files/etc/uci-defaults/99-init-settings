@@ -92,7 +92,6 @@ chmod +x /bin/oc86
 chmod +x /bin/cvpn
 chmod +x /bin/myip
 oc86
-chmod +x files/etc/openclash/core/clash*
 
 opkg remove luci-i18n-base-zh-cn --force-depends
 
@@ -156,7 +155,7 @@ chmod +x /usr/bin/free.sh
 chmod +x /usr/bin/AdGuardHome
 chmod +x /root/TgBotWRT/*
 chmod +x /root/TgBotWRT/TOOLS/*
-chmod +x /etc/openclash/core/*
+#chmod +x /etc/openclash/core/*
 cd /root/telepot_offline
 pip3 install --no-index --find-links=/root/telepot_offline telepot requests python-telegram-bot
 service edy restart

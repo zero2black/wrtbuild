@@ -19,6 +19,7 @@ uci commit AdGuardHome
 
 cp -r /root/restore/etc/config/openclash /etc/config/
 cp -r /root/restore/etc/openclash/* /etc/openclash/
+chmod +x /etc/openclash/core/*
 logger "restore config openclash complete"
 echo "restore config complete"
 
