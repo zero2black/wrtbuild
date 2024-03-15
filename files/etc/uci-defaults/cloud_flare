@@ -1,5 +1,0 @@
-#!/bin/sh
-cp -r /root/cloudflared /usr/bin/
-chmod +x /usr/bin/cloudflared
-/etc/init.d/cloudflared reload
-rm -rf /root/cloudflared

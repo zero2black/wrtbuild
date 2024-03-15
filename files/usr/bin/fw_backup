@@ -4,7 +4,7 @@ logger "file rule di delete"
 echo "file rule di delete"
 
 cd
-tar -czvf aldev_backup.tar /root/adgh /etc/config /root/vnstat /etc/openclash /root/TgBotWRT
+tar -czvf aldev_backup.tar /root/adgh /etc/config /root/vnstat /etc/openclash /root/TgBotWRT /usr/bin/cloudflared
 adb -s ce031713f47698730c push /root/aldev_backup.tar /storage/emulated/0/OPENWRT
 logger "backup data complete"
 echo "backup data complete"

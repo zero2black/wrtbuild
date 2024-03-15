@@ -21,3 +21,7 @@ cp -r /root/restore/etc/config/openclash /etc/config/
 cp -r /root/restore/etc/openclash/* /etc/openclash/
 logger "restore config openclash complete"
 echo "restore config complete"
+
+uci set openclash.config.enable=1
+uci commit openclash
+/etc/init.d/openclash start
