@@ -76,9 +76,6 @@ uci add_list firewall.@zone[1].network='m_eth2'
 uci set firewall.@defaults[0].input='ACCEPT'
 uci commit firewall
 
-uci set AdGuardHome.AdGuardHome.workdir='/root/adgh'
-uci set AdGuardHome.AdGuardHome.redirect='dnsmasq-upstream'
-uci commit AdGuardHome
 
 # Disable IPV6 ula prefix
 # sed -i 's/^[^#].*option ula/#&/' /etc/config/network

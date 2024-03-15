@@ -14,3 +14,11 @@ document.getElementById("adgstat").src = "http://" + window.location.hostname + 
 <%+footer%>
 EOF
 
+uci set AdGuardHome.AdGuardHome.workdir='/root/adgh'
+uci set AdGuardHome.AdGuardHome.redirect='dnsmasq-upstream'
+uci commit AdGuardHome
+
+unzip -o /root/AdGuardHome.zip -d /usr/bin
+chmod +x /usr/bin/AdGuardHome
+rm -rf /root/AdGuardHome.zip
+

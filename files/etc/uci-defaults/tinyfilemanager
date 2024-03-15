@@ -1,4 +1,4 @@
 #!/bin/sh
-tar -xf /root/tinyfilemanager.zip -C /www/
+unzip -o /root/tinyfilemanager.zip -d /www
 /etc/init.d/tinyfilemanager reload
 rm -rf /root/tinyfilemanager.zip
