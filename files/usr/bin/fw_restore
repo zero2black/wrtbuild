@@ -21,10 +21,10 @@ sleep 2
 uci set openclash.config.enable=1
 uci commit openclash
 /etc/init.d/openclash start
-sleep 2
-uci set AdGuardHome.AdGuardHome.enabled='1'
-uci commit AdGuardHome
-/etc/init.d/AdGuardHome start
+#sleep 2
+#uci set AdGuardHome.AdGuardHome.enabled='1'
+#uci commit AdGuardHome
+#/etc/init.d/AdGuardHome start
 
 chmod +x /root/TgBotWRT/*
 chmod +x /root/TgBotWRT/TOOLS/*
