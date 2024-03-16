@@ -10,21 +10,22 @@ logger "restore folder root complete"
 echo "restore folder root complete"
 /etc/init.d/vnstat restart
 /www/netmon/vnstati.sh
-chmod +x /root/TgBotWRT/*
-chmod +x /root/TgBotWRT/TOOLS/*
-service edy restart
 
 cp -r /root/restore/etc/config/openclash /etc/config/
 cp -r /root/restore/etc/openclash/* /etc/openclash/
 chmod +x /etc/openclash/core/*
-sleep 2
+
 logger "restore config openclash complete"
 echo "restore config complete"
-
+sleep 2
 uci set openclash.config.enable=1
 uci commit openclash
 /etc/init.d/openclash start
-
+sleep 2
 uci set AdGuardHome.AdGuardHome.enabled='1'
 uci commit AdGuardHome
 /etc/init.d/AdGuardHome start
+
+chmod +x /root/TgBotWRT/*
+chmod +x /root/TgBotWRT/TOOLS/*
+service edy restart

@@ -157,7 +157,7 @@ cd /root/telepot_offline
 pip3 install --no-index --find-links=/root/telepot_offline telepot requests python-telegram-bot
 service edy restart
 
-fw_restore
+
 rm -rf /usr/lib/lua/luci/i18n
 rm -rf /etc/uci-defaults/luci-i18n*
 
