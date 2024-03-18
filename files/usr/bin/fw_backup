@@ -3,8 +3,10 @@ find /etc/openclash/rule_provider/ -type f ! -name 'aldev_*' -exec rm {} +
 logger "file rule di delete"
 echo "file rule di delete"
 
+backup = aldev_backup.tar.gz
+
 cd
-tar -czvf aldev_backup.tar /root/adgh /etc/config /root/vnstat /etc/openclash /root/TgBotWRT /usr/bin/cloudflared
-adb -s ce031713f47698730c push /root/aldev_backup.tar /storage/emulated/0/OPENWRT
+tar -czvf aldev_backup.tar.gz /root/adgh /etc/config /root/vnstat /etc/openclash /root/TgBotWRT /usr/bin/cloudflared
+adb -s ce031713f47698730c push -p /root/aldev_backup.tar.gz /storage/emulated/0/OPENWRT
 logger "backup data complete"
 echo "backup data complete"
