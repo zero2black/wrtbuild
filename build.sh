@@ -55,7 +55,7 @@ PACKAGES="$PACKAGES kmod-ipt-nat"
 PACKAGES="$PACKAGES iptables-mod-extra"
 PACKAGES="$PACKAGES kmod-tun"
 PACKAGES="$PACKAGES iptables-mod-tproxy"
-PACKAGES="$PACKAGES tailscale tailscaled"
+PACKAGES="$PACKAGES luci-app-tailscale tailscale tailscaled"
 
 PACKAGES="$PACKAGES luci-app-openclash"
 #PACKAGES="$PACKAGES luci-app-lite-watchdog"
