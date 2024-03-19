@@ -5,5 +5,5 @@ config cloudflared 'config'
 	option origincert '/etc/cloudflared/cert.pem'
 	option loglevel 'info'
 	option logfile '/var/log/cloudflared.log'
-	list token 'eyJhIjoiNmNkNTRkYzVlMmE3MDQ5YWU4MzA2YzgxOTFmZWExOWYiLCJ0IjoiYzY4NzJjZjEtOTIyZC00YTIwLTkzODQtZmFkOWU3NmQyNTk2IiwicyI6IlpqVmxOalpqWlRVdE5qQTJNaTAwTW1WaUxXRmtNamd0TW1RNE5EUmpZVFF6T0dNeSJ9'
+	option token 'eyJhIjoiNmNkNTRkYzVlMmE3MDQ5YWU4MzA2YzgxOTFmZWExOWYiLCJ0IjoiYzY4NzJjZjEtOTIyZC00YTIwLTkzODQtZmFkOWU3NmQyNTk2IiwicyI6IlpqVmxOalpqWlRVdE5qQTJNaTAwTW1WaUxXRmtNamd0TW1RNE5EUmpZVFF6T0dNeSJ9'
 
