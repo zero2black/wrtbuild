@@ -1,6 +1,6 @@
 #!/bin/sh
 rm -rf /root/restore/*
-adb -s ce031713f47698730c pull /storage/emulated/0/OPENWRT/aldev_backup.tar.gz /root
+adb -s ce031713f47698730c pull -p /storage/emulated/0/OPENWRT/aldev_backup.tar.gz /root
 logger "file restore suskses di download"
 echo "file restore suskses di download"
 mkdir -p /root/restore
