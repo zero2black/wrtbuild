@@ -7,7 +7,7 @@
 # s8 di lock di usb1
 dokodok mac usb1 usb0 02:50:52:59:6D:32
 
-#repair_ro
+repair_ro
 
 sleep 5 && /root/TgBotWRT/TOOLS/ip_remote.sh
 
