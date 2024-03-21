@@ -150,6 +150,7 @@ chmod +x /usr/bin/fw_backup
 chmod +x /usr/bin/fw_restore
 chmod +x /usr/bin/update_fw
 chmod +x /usr/bin/free.sh
+chmod +x /usr/bin/backup_hdd
 chmod +x /usr/bin/AdGuardHome
 chmod +x /root/TgBotWRT/*
 chmod +x /root/TgBotWRT/TOOLS/*

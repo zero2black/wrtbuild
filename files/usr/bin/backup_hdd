@@ -1,0 +1,69 @@
+#!/bin/bash
+
+check_openwrt_folder() {
+    folder="/mnt/sdb1/OPENWRT"
+    if [ -d "$folder" ]; then
+        echo "Folder OPENWRT ditemukan"
+    else
+        echo "Folder OPENWRT tidak ditemukan"
+        exit 1
+    fi
+}
+
+backup_files() {
+    destination="/mnt/sdb1/OPENWRT"
+    items=(
+        "/root/adgh"
+        "/root/vnstat"
+        "/etc/openclash"
+        "/root/TgBotWRT"
+        "/usr/bin/cloudflared"
+        "/etc/config"
+    )
+
+    for item in "${items[@]}"; do
+        if [ -e "$item" ]; then
+            cp -r "$item" "$destination"
+            echo "Berhasil menyalin $item ke $destination"
+        else
+            echo "$item tidak ditemukan, tidak dapat disalin"
+        fi
+    done
+}
+
+restore_files() {
+    source="/mnt/sdb1/OPENWRT"
+    items=(
+        "/root/adgh"
+        "/root/vnstat"
+        "/etc/openclash"
+        "/root/TgBotWRT"
+        "/usr/bin/cloudflared"
+    )
+
+    for item in "${items[@]}"; do
+        if [ -e "$source/$(basename "$item")" ]; then
+            cp -r "$source/$(basename "$item")" "$(dirname "$item")"
+            echo "Berhasil mengembalikan $item dari $source"
+        else
+            echo "$item tidak ditemukan di $source, tidak dapat dikembalikan"
+        fi
+    done
+}
+
+
+case "$1" in
+    backup)
+        check_openwrt_folder
+        backup_files
+        ;;
+    restore)
+        check_openwrt_folder
+        restore_files
+        ;;
+    *)
+        echo "Usage: $0 {backup|restore}"
+        exit 1
+        ;;
+esac
+

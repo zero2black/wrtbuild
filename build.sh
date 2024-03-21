@@ -23,7 +23,7 @@ PACKAGES="$PACKAGES luci-proto-modemmanager"
 PACKAGES="$PACKAGES internet-detector luci-app-internet-detector"
 
 PACKAGES="$PACKAGES luci-app-eqosplus"
-PACKAGES="$PACKAGES -automount -libustream-openssl"
+PACKAGES="$PACKAGES -automount -libustream-openssl -luci-i18n-base-zh-cn -default-settings-chn -kmod-usb-net-rtl8152-vendor"
 
 #PACKAGES="$PACKAGES -dnsmasq dnsmasq-full cgi-io libiwinfo libiwinfo-data libiwinfo-lua liblua block-mount mount-utils"
 #PACKAGES="$PACKAGES liblucihttp liblucihttp-lua libubus-lua lua luci luci-app-firewall luci-app-opkg"
@@ -86,7 +86,7 @@ PACKAGES="$PACKAGES kmod-usb-net-rndis kmod-usb-net-huawei-cdc-ncm kmod-usb-net-
 
 
 # Diskman 磁盘管理
-PACKAGES="$PACKAGES -luci-i18n-base-zh-cn -default-settings-chn"
+#PACKAGES="$PACKAGES -luci-i18n-base-zh-cn -default-settings-chn"
 
 # collectd 统计
 PACKAGES="$PACKAGES luci-app-argon-config"
@@ -142,7 +142,8 @@ PACKAGES="$PACKAGES luci-app-tinyfilemanager"
 FILES="files"
 
 # 禁用 openssh-server 的 sshd 服务和 docker 的 dockerd 服务以防止冲突
-DISABLED_SERVICES="sshd"
+#DISABLED_SERVICES="sshd"
+DISABLED_SERVICES=""
 
 #make image PROFILE="$PROFILE" PACKAGES="$PACKAGES" FILES="$FILES" DISABLED_SERVICES="$DISABLED_SERVICES" EXTRA_IMAGE_NAME="$DATE"
 make image PROFILE="$PROFILE" PACKAGES="$PACKAGES" FILES="$FILES" DISABLED_SERVICES="$DISABLED_SERVICES"
