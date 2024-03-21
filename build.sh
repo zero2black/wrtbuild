@@ -38,7 +38,7 @@ PACKAGES="$PACKAGES -automount -libustream-openssl -luci-i18n-base-zh-cn -defaul
 #PACKAGES="$PACKAGES kmod-usb-storage kmod-usb-storage-uas ksmbd-server"
 
 # Docker
-#PACKAGES="$PACKAGES docker docker-compose dockerd luci-app-dockerman"
+PACKAGES="$PACKAGES docker docker-compose dockerd luci-app-dockerman"
 #phyto
 PACKAGES="$PACKAGES bash screen jq wget-ssl curl python3-pip python3 python3-setuptools git-http git nano sysstat"
 #wifi
