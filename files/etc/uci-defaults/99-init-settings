@@ -12,6 +12,16 @@ uci del network.lan.force_link
 commit
 EOF
 
+versi=$(cat /root/aldevwrt_version)
+sed -i "s#_('Firmware Version'),(L.isObject(boardinfo.release)?boardinfo.release.description+' / ':'')+(luciversion||''),#_('Firmware Version'),(L.isObject(boardinfo.release)?boardinfo.release.description+' | $versi':''),#g" /www/luci-static/resources/view/status/include/10_system.js
+if grep -q "ImmortalWrt" /etc/openwrt_release; then
+  sed -i "s/\(DISTRIB_DESCRIPTION='ImmortalWrt [0-9]*\.[0-9]*\.[0-9]*\).*'/\1'/g" /etc/openwrt_release
+  echo Branch version: "$(grep 'DISTRIB_DESCRIPTION=' /etc/openwrt_release | awk -F"'" '{print $2}')"
+elif grep -q "OpenWrt" /etc/openwrt_release; then
+  sed -i "s/\(DISTRIB_DESCRIPTION='OpenWrt [0-9]*\.[0-9]*\.[0-9]*\).*'/\1'/g" /etc/openwrt_release
+  echo Branch version: "$(grep 'DISTRIB_DESCRIPTION=' /etc/openwrt_release | awk -F"'" '{print $2}')"
+fi
+
 # Set Timezone to Asia/Jakarta
 uci set system.@system[0].hostname='AldevWrt'
 uci set system.@system[0].timezone='WIB-7'
