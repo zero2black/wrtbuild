@@ -50,7 +50,7 @@ restore_files() {
             echo "$item tidak ditemukan di $source, tidak dapat dikembalikan"
         fi
     done
-    cp -r /mnt/sdb1/OPENWRT/etc/config/openclash /etc/config/
+    cp -r /mnt/sdb1/OPENWRT/config/openclash /etc/config/
     chmod +x /etc/openclash/core/*
 
     echo "restore config complete"
