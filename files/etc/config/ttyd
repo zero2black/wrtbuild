@@ -1,0 +1,5 @@
+
+config ttyd
+	option command '/bin/login -f root'
+	option debug '7'
+
