@@ -18,6 +18,7 @@ backup_files() {
         "/etc/openclash"
         "/root/TgBotWRT"
         "/usr/bin/cloudflared"
+        "/opt"
         "/etc/config"
     )
 
