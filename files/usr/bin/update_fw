@@ -8,6 +8,6 @@ echo $z2b_file_down
 cd && ls
 wget $z2b_file_down
 
-backup_hdd backup
-fw_backup
+aldev backup
+#fw_backup
 sysupgrade -v -n /root/*x86-64-generic-ext4-combined-efi.img.gz

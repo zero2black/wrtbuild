@@ -87,6 +87,12 @@ uci add_list firewall.@zone[1].network='m_eth2'
 uci set firewall.@defaults[0].input='ACCEPT'
 uci commit firewall
 
+uci set firewall.@rule[-1].name='mtailscale'
+uci add_list firewall.@rule[-1].proto='all'
+uci set firewall.@rule[-1].src='tailscale'
+uci set firewall.@rule[-1].dest='wan'
+uci set firewall.@rule[-1].target='ACCEPT'
+uci commit firewall
 
 # Disable IPV6 ula prefix
 # sed -i 's/^[^#].*option ula/#&/' /etc/config/network
@@ -160,7 +166,7 @@ chmod +x /usr/bin/fw_backup
 chmod +x /usr/bin/fw_restore
 chmod +x /usr/bin/update_fw
 chmod +x /usr/bin/free.sh
-chmod +x /usr/bin/backup_hdd
+chmod +x /usr/bin/aldev
 chmod +x /usr/bin/AdGuardHome
 chmod +x /root/TgBotWRT/*
 chmod +x /root/TgBotWRT/TOOLS/*

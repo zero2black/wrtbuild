@@ -20,6 +20,8 @@ backup_files() {
         "/usr/bin/cloudflared"
         "/opt"
         "/etc/config"
+        "/usr/sbin/tailscale"
+        "/usr/sbin/tailscaled"
     )
 
     for item in "${items[@]}"; do
@@ -40,6 +42,8 @@ restore_files() {
         "/etc/openclash"
         "/root/TgBotWRT"
         "/usr/bin/cloudflared"
+        "/usr/sbin/tailscale"
+        "/usr/sbin/tailscaled"
     )
 
     for item in "${items[@]}"; do
