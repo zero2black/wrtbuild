@@ -39,6 +39,7 @@ jobs:
           echo "DATE=$(date +%Y%m%d)" >> $GITHUB_ENV
           echo "DATETIME=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
           echo "ARCH=$ARCH_1" >> $GITHUB_ENV
+          echo "VERSION=$(curl -s https://api.github.com/repos/immortalwrt/immortalwrt/tags | jq -r '.[0].name' | sed 's/^v//')" >> $GITHUB_ENV
       
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout
@@ -48,8 +49,8 @@ jobs:
 
       - name: Download Image Builder
         run: |
-          VERSION=$(curl -s https://api.github.com/repos/immortalwrt/immortalwrt/tags | jq -r '.[0].name' | sed 's/^v//')
-          echo "$VERSION"
+          #VERSION=$(curl -s https://api.github.com/repos/immortalwrt/immortalwrt/tags | jq -r '.[0].name' | sed 's/^v//')
+          #echo "$VERSION"
 
           wget -nv $DOWNLOAD_BASE/releases/$VERSION/targets/x86/64/$VENDOR-imagebuilder-$VERSION-x86-64.Linux-x86_64.tar.xz
           tar -xJf $VENDOR-imagebuilder-$VERSION-x86-64.Linux-x86_64.tar.xz
