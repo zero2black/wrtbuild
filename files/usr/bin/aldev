@@ -61,6 +61,8 @@ restore_files() {
     uci set openclash.config.enable=1
     uci commit openclash
     /etc/init.d/openclash start
+    uci set tailscale.config.enable=1
+    uci commit tailscale
     /etc/init.d/tailscale restart
 #sleep 2
 #uci set  AdGuardHome.AdGuardHome.enabled='1'
