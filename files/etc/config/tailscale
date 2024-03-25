@@ -9,6 +9,6 @@ config tailscale 'settings'
 	option acceptRoutes '1'
 	option acceptDNS '1'
 	option advertiseExitNode '1'
-	option advertiseRoutes '192.168.0.0/24'
+	option advertiseRoutes '192.168.0.0/16'
 	list access 'tsfwwan'
 
