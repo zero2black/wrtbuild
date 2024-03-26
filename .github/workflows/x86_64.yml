@@ -32,7 +32,7 @@ jobs:
         with:
           to: ${{ secrets.TELEGRAM_USER_ID }} # or your group ID
           token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          message: "New release uploaded
+          message: "New release uploaded"
       - name: Initialization Environment
         run: |
           sudo apt-get -qq update
