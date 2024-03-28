@@ -38,7 +38,7 @@ PACKAGES="$PACKAGES -automount -libustream-openssl -luci-i18n-base-zh-cn -defaul
 #PACKAGES="$PACKAGES kmod-usb-storage kmod-usb-storage-uas ksmbd-server"
 
 # Docker
-# PACKAGES="$PACKAGES docker docker-compose dockerd luci-app-dockerman"
+PACKAGES="$PACKAGES docker docker-compose dockerd luci-app-dockerman"
 #phyto
 PACKAGES="$PACKAGES bash screen jq wget-ssl curl python3-pip python3 python3-setuptools git-http git nano sysstat"
 #wifi
@@ -50,7 +50,7 @@ PACKAGES="$PACKAGES luci-app-diskman luci-app-hd-idle smartmontools kmod-usb-sto
 PACKAGES="$PACKAGES samba4-server luci-app-samba4 aria2 ariang luci-app-aria2"
 
 
-PACKAGES="$PACKAGES iptables-nft netdata vnstat2 vnstati2"
+PACKAGES="$PACKAGES netdata vnstat2 vnstati2"
 PACKAGES="$PACKAGES luci-app-netmonitor"
 PACKAGES="$PACKAGES luci-app-cloudflared"
 
@@ -58,9 +58,8 @@ PACKAGES="$PACKAGES kmod-inet-diag"
 PACKAGES="$PACKAGES luci-compat"
 PACKAGES="$PACKAGES kmod-nft-tproxy"
 PACKAGES="$PACKAGES kmod-ipt-nat"
-PACKAGES="$PACKAGES iptables-mod-extra"
+#PACKAGES="$PACKAGES iptables-nft iptables-mod-extra iptables-mod-tproxy"
 PACKAGES="$PACKAGES kmod-tun"
-PACKAGES="$PACKAGES iptables-mod-tproxy"
 PACKAGES="$PACKAGES luci-app-tailscale tailscale tailscaled"
 
 PACKAGES="$PACKAGES luci-app-openclash"
