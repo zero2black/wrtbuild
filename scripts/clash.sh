@@ -3,6 +3,20 @@
 echo "Start Clash Core Download !"
 echo "Current Path: $PWD"
 
+echo "Start YACD Download !"
+
+yacd_dir="${1:-files/usr/share/openclash/ui}"
+yacd="https://github.com/taamarin/yacd-meta/archive/gh-pages.zip"
+mkdir -p $yacd_dir
+if wget --no-check-certificate -nv $yacd -O $yacd_dir/yacd.zip; then
+   unzip -qq $yacd_dir/yacd.zip -d $yacd_dir && rm $yacd_dir/yacd.zip
+   if mv $yacd_dir/yacd-meta-gh-pages $yacd_dir/yacd.new; then 
+     echo "YACD Dashboard download successfully."
+   fi
+else
+   echo "Failed to download YACD Dashboard"
+fi
+
 #mkdir -p files/etc/openclash/core
 #cd files/etc/openclash/core || (echo "Clash core path does not exist! " && exit)
 #wget https://raw.githubusercontent.com/vernesong/OpenClash/core/master/dev/clash-linux-amd64.tar.gz | tar xOvz > files/etc/openclash/core/clash2
